@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бурение скважин в Беларуси</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background:#7593a630; margin:0; color:#333; }
+        header { background: linear-gradient(90deg, #18191a, #7694a8); color:#fff; padding:1rem 1rem; text-align:center; }
+        header h1 { margin:0; font-size:2.2rem; }
+        header p { margin:0.5rem 0 0; font-size:1.1rem; }
+        section { max-width:1080px; margin:1rem auto; padding:1rem; }
+        .contacts { display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; margin-top:1rem; }
+        .contacts a {display: inline-flex;align-items: center;justify-content: center;gap: 0.5rem;padding: 0.8rem 1.5rem;border: 2px solid #1a2a44;background: #fff;color: #1a2a44;border-radius: 6px;font-weight: 600;text-decoration: none;transition: 0.3s;}
+        .contacts a img {width: 24px;height: 24px;display: inline-block;margin-top: 0;box-shadow: none;border-radius: 0;}
+        .contacts a:hover {background: #f0f4f8;transform: translateY(-2px);}
+        .header-icons {display: flex;align-items: center;gap: 1rem;}
+        .header-icons a img {width: 32px;height: 32px;display: block;margin-top:0;}
+        .header-icons a:hover img {transform: scale(1.1);}
+        .header-contacts {display: flex;justify-content: center;align-items: center;gap: 1.5rem;margin-top: 1rem;}
+        .header-phones {display: flex;flex-direction: column;justify-content: center;gap: 0.2rem;}
+        .header-phones a {color: #fff;text-decoration: none;font-weight: 600;font-size: 1rem;}
+        .header-phones a:hover {text-decoration: underline;}
+
+        .services {max-width: 1080px;margin: 0 auto;padding: 0;text-align: center;}
+        .services h2 {font-size: 2rem;margin-bottom: 0.5rem;}
+        .service-cards {display: flex;flex-wrap: wrap;justify-content: center;gap: 1rem;}
+        .service-card {background: #fff;border-radius: 10px;padding: 1.5rem;width: 260px;box-shadow: 0 6px 12px rgba(0,0,0,0.1);transition: transform 0.3s;}
+        .service-card:hover {transform: translateY(-5px);}
+        .service-card h3 {font-size: 1.2rem;margin-bottom: 0.5rem;}
+        .service-card p {font-size: 1rem;margin-bottom: 1rem;color: #555;}
+        .service-card .price {font-weight: 700;color: #0066cc;font-size: 1.1rem;}
+
+        .checklist {list-style: none;padding: 0;font-size: 1.1rem;color: #333;text-align: left;display: inline-block;}  
+        .checklist li {margin-bottom: 0.6rem;line-height: 1.5;}
+
+        form { background:#fff; padding:2rem; border-radius:10px; box-shadow:0 6px 15px rgba(0,0,0,0.1); }
+        input, textarea, button { width:100%; margin-bottom:1rem; padding:0.9rem; border-radius:6px; border:1px solid #ccc; font-size:1rem; }
+        input:focus, textarea:focus { outline:none; border-color:#0099ff; box-shadow:0 0 5px rgba(0,153,255,0.3); }
+        button { background:#0066cc; color:#fff; border:none; cursor:pointer; transition:0.3s; font-weight:600; }
+        button:hover { background:#005bb5; }
+        img { max-width:100%; border-radius:10px; margin-top:1rem; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+        footer { text-align:center; padding:1rem; background:#e9ecef; margin-top:2rem; font-size:0.9rem; }
+
+        #toast {display: none;position: fixed;bottom: 40px;right: 40px;background: #28a745;color: #fff;padding: 2rem 3rem;border-radius: 16px;box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);z-index: 1000;min-width: 500px;font-size: 2rem;}
+        #toast.error {background: #dc3545;}
+        #toast .close {float: right;margin-left: 2rem;cursor: pointer;font-weight: bold;font-size: 2rem;}
+        
+        .carousel-wrapper {
+            position: relative;
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .carousel {
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.4s ease;
+        }
+
+        .carousel img {
+            width: 100%;
+            flex-shrink: 0;
+            display: block;
+        }
+
+        .carousel-wrapper button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #546774;
+            color: #fff;
+            border: none;
+            font-size: 2.5rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            z-index: 10;
+            user-select: none;
+            width: auto
+        }
+
+        .carousel-wrapper .prev { left: 0; }
+        .carousel-wrapper .next { right: 0; }
+
+        .carousel-wrapper button:hover {
+            background: rgba(0,0,0,0.8);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Бурение скважин</h1>
+    <p>Работаем по всей Беларуси • Быстро • Надёжно • С гарантией</p>
+
+    <div class="header-contacts">
+        <div class="header-phones">
+            <a href="tel:+375291112233">+375 29 111-22-33</a>
+            <a href="tel:+375291231212">+375 29 123-12-12</a>
+        </div>
+        <div class="header-icons">
+            <a href="https://t.me/matsiuk_alexander" class="telegram"><img src="telegram.svg" alt="Telegram"></a>
+            <a href="viber://chat?number=+375291231212" class="viber"><img src="viber.svg" alt="Viber"></a>
+        </div>
+    </div>
+</header>
+
+<section class="services">
+    <h2>Наши услуги</h2>
+    <div class="service-cards">
+        <div class="service-card">
+            <h3>Бурение на воду</h3>
+            <p>Глубина до 30 м, установка обсадной трубы, гарантия качества.</p>
+            <span class="price">от 500 $</span>
+        </div>
+        <div class="service-card">
+            <h3>Бурение скважин для коттеджей</h3>
+            <p>Глубина до 50 м, комплексное оборудование, под ключ.</p>
+            <span class="price">от 800 $</span>
+        </div>
+        <div class="service-card">
+            <h3>Обслуживание и чистка скважин</h3>
+            <p>Чистка, промывка, диагностика водоносных слоёв.</p>
+            <span class="price">от 150 $</span>
+        </div>
+        <div class="service-card">
+            <h3>Обслуживание и чистка скважин</h3>
+            <p>Чистка, промывка, диагностика водоносных слоёв.</p>
+            <span class="price">от 150 $</span>
+        </div>
+        <div class="service-card">
+            <h3>Обслуживание и чистка скважин</h3>
+            <p>Чистка, промывка, диагностика водоносных слоёв.</p>
+            <span class="price">от 150 $</span>
+        </div>
+    </div>
+</section>
+
+<section class="services">
+    <h2>Примеры наших работ</h2>
+    <div class="carousel-wrapper">
+        <div class="carousel">
+            <div class="carousel-track">
+                <img src="picture1.svg" alt="Бурение скважины">
+                <img src="picture2.png" alt="Бурение скважины">
+                <img src="picture3.jpg" alt="Бурение скважины">
+            </div>
+        </div>
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+    </div>
+</section>
+
+<section class="services">
+    <h2>Почему выбирают нас</h2>
+    <ul class="checklist">
+        <li>✅ Бурение обсадных скважин диаметром 110–160 мм на глубину до 60 метров</li>
+        <li>✅ Установка фильтров и насосного оборудования в соответствии с гидрогеологическими условиями</li>
+        <li>✅ Промывка и промер дебита скважины после бурения для контроля водоносного слоя</li>
+        <li>✅ Использование глинистых растворов для стабилизации стенок и минимизации осыпания породы</li>
+        <li>✅ Контроль вертикальности скважины и точности бурения с помощью гироскопических приборов</li>
+        <li>✅ Работа 7 дней в неделю, возможен срочный выезд на объект в течение 24 часов</li>
+    </ul>
+</section>
+
+<section class="services">
+    <h2>Свяжитесь с нами</h2>
+    <div class="contacts">
+        <a href="https://t.me/matsiuk_alexander" class="telegram"><img src="telegram.svg" alt="Telegram">Telegram</a>
+        <a href="viber://chat?number=+375291231212" class="viber"><img src="viber.svg" alt="Viber">Viber</a>
+        <a href="tel:+375291112233" class="tel"><img src="phone.svg" alt="Позвонить">+375 29 111 22 33</a>
+        <a href="tel:+375291231212" class="tel"><img src="phone.svg" alt="Позвонить">+375 29 123-12-12</a>
+    </div>
+</section>
+
+<section class="services">
+    <h2>Заказать обратный звонок</h2>
+    <form id="contactForm">
+        <input type="text" name="name" placeholder="Ваше имя" required>
+        <input type="tel" name="phone" placeholder="Ваш телефон" required>
+        <textarea name="message" rows="4" placeholder="Комментарий (необязательно)"></textarea>
+        <button type="submit">Отправить заявку</button>
+    </form>
+</section>
+
+<footer>
+    <p>© 2025 Бурение скважин. Все права защищены.</p>
+</footer>
+
+<!-- Всплывающее уведомление -->
+<div id="toast"><span class="message"></span><span class="close" onclick="closeToast()">×</span></div>
+
+<script>
+    const TOKEN = "8477142374:AAEG87UhHnxBdUa4_s5xrUqg6M3gbTfVhD0";
+    const CHAT_ID = "285233985";
+    const URL = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+
+    const toast = document.getElementById("toast");
+    const toastMessage = toast.querySelector(".message");
+
+    function showToast(msg, isError=false){
+        toastMessage.innerText = msg;
+        toast.className = isError ? "error" : "";
+        toast.style.display = "block";
+    }
+
+    function closeToast(){
+        toast.style.display = "none";
+    }
+
+    document.getElementById("contactForm").addEventListener("submit", function(e){
+        e.preventDefault();
+        const name = this.name.value;
+        const phone = this.phone.value;
+        const message = this.message.value;
+
+        const text = `📩 Новая заявка с сайта\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n💬 Сообщение: ${message}`;
+
+        fetch(URL, {
+            method:"POST",
+            headers:{ "Content-Type":"application/json" },
+            body:JSON.stringify({ chat_id: CHAT_ID, text:text, parse_mode:"HTML" })
+        })
+            .then(res=>{
+                if(res.ok){
+                    showToast("✅ Заявка отправлена!");
+                    this.reset();
+                } else {
+                    showToast("❌ Ошибка при отправке.", true);
+                }
+            })
+            .catch(()=>{
+                showToast("⚠️ Сеть недоступна.", true);
+            });
+    });
+
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+    let index = 0;
+
+    function updateCarousel() {
+        const width = track.getBoundingClientRect().width; // ширина видимой области
+        track.style.transform = `translateX(-${index * width}px)`;
+    }
+
+    nextButton.addEventListener('click', () => {
+        index = (index + 1) % slides.length;
+        updateCarousel();
+    });
+
+    prevButton.addEventListener('click', () => {
+        index = (index - 1 + slides.length) % slides.length;
+        updateCarousel();
+    });
+
+    window.addEventListener('resize', updateCarousel);
+    updateCarousel();
+</script>
+
+</body>
+</html>
