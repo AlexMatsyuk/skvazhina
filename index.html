@@ -35,16 +35,16 @@
         .checklist li {margin-bottom: 0.6rem;line-height: 1.5;}
 
         form { background:#fff; padding:2rem; border-radius:10px; box-shadow:0 6px 15px rgba(0,0,0,0.1); }
-        input, textarea, button { width:100%; margin-bottom:1rem; padding:0.9rem; border-radius:6px; border:1px solid #ccc; font-size:1rem; }
+        input, textarea, button { font-family: arial; width:100%; margin-bottom:1rem; padding:0.9rem; border-radius:6px; border:1px solid #ccc; font-size:1rem; box-sizing: border-box;}
         input:focus, textarea:focus { outline:none; border-color:#0099ff; box-shadow:0 0 5px rgba(0,153,255,0.3); }
         button { background:#0066cc; color:#fff; border:none; cursor:pointer; transition:0.3s; font-weight:600; }
         button:hover { background:#005bb5; }
         img { max-width:100%; border-radius:10px; margin-top:1rem; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
         footer { text-align:center; padding:1rem; background:#e9ecef; margin-top:2rem; font-size:0.9rem; }
 
-        #toast {display: none;position: fixed;bottom: 40px;right: 40px;background: #28a745;color: #fff;padding: 2rem 3rem;border-radius: 16px;box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);z-index: 1000;min-width: 500px;font-size: 2rem;}
+        #toast {display: none;position: fixed;bottom: 20px;right: 50%;transform: translateX(50%);background: #28a745;color: #fff;padding: 1.5rem 2rem;border-radius: 16px;box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);z-index: 1000;min-width: 200px;max-width: 90vw;font-size: 1.6rem;box-sizing: border-box;}
         #toast.error {background: #dc3545;}
-        #toast .close {float: right;margin-left: 2rem;cursor: pointer;font-weight: bold;font-size: 2rem;}
+        #toast .close {float: right;margin-left: 1rem;cursor: pointer;font-weight: bold;font-size: 1.6rem;}
         
         .carousel-wrapper {
             position: relative;
@@ -99,7 +99,7 @@
 
     <div class="header-contacts">
         <div class="header-phones">
-            <a href="tel:+375291112233">+375 29 111-22-33</a>
+            <a href="tel:+375299446002">+375 29 944-60-02</a>
             <a href="tel:+375291231212">+375 29 123-12-12</a>
         </div>
         <div class="header-icons">
@@ -172,7 +172,7 @@
     <div class="contacts">
         <a href="https://t.me/matsiuk_alexander" class="telegram"><img src="telegram.svg" alt="Telegram">Telegram</a>
         <a href="viber://chat?number=+375291231212" class="viber"><img src="viber.svg" alt="Viber">Viber</a>
-        <a href="tel:+375291112233" class="tel"><img src="phone.svg" alt="Позвонить">+375 29 111 22 33</a>
+        <a href="tel:+375299446002" class="tel"><img src="phone.svg" alt="Позвонить">+375 29 944-60-02</a>
         <a href="tel:+375291231212" class="tel"><img src="phone.svg" alt="Позвонить">+375 29 123-12-12</a>
     </div>
 </section>
