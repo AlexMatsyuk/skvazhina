@@ -44,7 +44,8 @@
 
         #toast {display: none;position: fixed;bottom: 20px;right: 50%;transform: translateX(50%);background: #28a745;color: #fff;padding: 1.5rem 2rem;border-radius: 16px;box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);z-index: 1000;min-width: 200px;max-width: 90vw;font-size: 1.6rem;box-sizing: border-box;}
         #toast.error {background: #dc3545;}
-        #toast .close {float: right;margin-left: 1rem;cursor: pointer;font-weight: bold;font-size: 1.6rem;}
+        #toast .close {float: right;margin-left: 1rem;cursor: pointer;font-weight: bold;font-size: 1.6rem;transition: color 0.2s;}
+        #toast .close:hover {color: red;}
         
         .carousel-wrapper {
             position: relative;
@@ -192,7 +193,10 @@
 </footer>
 
 <!-- Всплывающее уведомление -->
-<div id="toast"><span class="message"></span><span class="close" onclick="closeToast()">×</span></div>
+<div id="toast">
+    <span class="close" onclick="closeToast()">×</span>
+    <span class="message"></span>
+</div>
 
 <script>
     const TOKEN = "8477142374:AAEG87UhHnxBdUa4_s5xrUqg6M3gbTfVhD0";
@@ -227,7 +231,7 @@
         })
             .then(res=>{
                 if(res.ok){
-                    showToast("✅ Заявка отправлена!");
+                    showToast("Заявка отправлена!");
                     this.reset();
                 } else {
                     showToast("❌ Ошибка при отправке.", true);
