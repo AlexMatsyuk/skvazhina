@@ -7,8 +7,25 @@
     <link rel="icon" href="favicon.svg" type="image/x-icon">
 
     <style>
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background:#7593a630; margin:0; color:#333; }
-        header { background: linear-gradient(90deg, #18191a, #7694a8); color:#fff; padding:1rem 1rem; text-align:center; }
+        body {font-family: 'Segoe UI', Tahoma, sans-serif;background: #7593a630;margin: 0;color: #333;padding-top: 90px; /* Чтобы контент не скрывался под фиксированным хедером */}
+        header {position: fixed;top: 0;left: 0;width: 100%;height: 80px; /* Фиксированная высота */z-index: 1000;background: linear-gradient(90deg, #18191a, #7694a8);color: #fff;display: flex;align-items: center; /* Вертикальное выравнивание */padding: 0 1rem;box-sizing: border-box;}
+        .header-container {display: flex;align-items: center;justify-content: space-between;max-width: 1080px;width: 100%;margin: 0 auto;gap: 2rem;height: 100%;}
+        .logo {display: flex;align-items: center;height: 100%;}
+        .logo img {display: block;height: 50px;width: auto;}
+        .header-text {display: flex;flex-direction: column;justify-content: center;text-align: center;width:30%}
+        .header-text p {margin: 0;line-height: 1.3;}
+        .header-contacts {display: flex;align-items: center;gap: 1.5rem;height: 100%;}
+        .header-phones {display: flex;flex-direction: column;justify-content: center;gap: 0.2rem;}
+        .header-phones a {color: #fff;text-decoration: none;font-weight: 600;white-space: nowrap;}
+        .header-phones a:hover {text-decoration: underline;}
+        .header-icons {display: flex;align-items: center;gap: 1rem;min-width:100px}
+        .header-icons a img {width: 32px;height: 32px;display: block;transition: transform 0.3s;}
+        .header-icons a:hover img {transform: scale(1.1);}
+        .header-form {display: flex;align-items: center;gap: 0.5rem;height: 100%;}
+        .header-form input {padding: 0.6rem 0.8rem;border-radius: 4px;border: none;font-size: 1rem;height: 40px;box-sizing: border-box;}
+        .header-form button {padding: 0.6rem 1rem;border: none;border-radius: 4px;background-color: #1a2a44;color: #fff;cursor: pointer;font-weight: 600;transition: 0.3s;height: 40px;white-space: nowrap;}
+        .header-form button:hover {background-color: #3a4f78;}
+        
         header h1 { margin:0; font-size:2.2rem; }
         header p { margin:0.5rem 0 0; font-size:1.1rem; }
         section { max-width:1080px; margin:1rem auto; padding:1rem; }
@@ -16,13 +33,6 @@
         .contacts a {display: inline-flex;align-items: center;justify-content: center;gap: 0.5rem;padding: 0.8rem 1.5rem;border: 2px solid #1a2a44;background: #fff;color: #1a2a44;border-radius: 6px;font-weight: 600;text-decoration: none;transition: 0.3s;}
         .contacts a img {width: 24px;height: 24px;display: inline-block;margin-top: 0;box-shadow: none;border-radius: 0;}
         .contacts a:hover {background: #f0f4f8;transform: translateY(-2px);}
-        .header-icons {display: flex;align-items: center;gap: 1rem;}
-        .header-icons a img {width: 32px;height: 32px;display: block;margin-top:0;}
-        .header-icons a:hover img {transform: scale(1.1);}
-        .header-contacts {display: flex;justify-content: center;align-items: center;gap: 1.5rem;margin-top: 1rem;}
-        .header-phones {display: flex;flex-direction: column;justify-content: center;gap: 0.2rem;}
-        .header-phones a {color: #fff;text-decoration: none;font-weight: 600;font-size: 1rem;}
-        .header-phones a:hover {text-decoration: underline;}
 
         .services {max-width: 1080px;margin: 0 auto;padding: 0;text-align: center;}
         .services h2 {font-size: 2rem;margin-bottom: 0.5rem;}
@@ -37,11 +47,12 @@
         .checklist li {margin-bottom: 0.6rem;line-height: 1.5;}
 
         form { background:#fff; padding:2rem; border-radius:10px; box-shadow:0 6px 15px rgba(0,0,0,0.1); }
-        input, textarea, button { font-family: arial; width:100%; margin-bottom:1rem; padding:0.9rem; border-radius:6px; border:1px solid #ccc; font-size:1rem; box-sizing: border-box;}
+        input, textarea, button { font-family: arial; width:100%; padding:0.9rem; border-radius:6px; border:1px solid #ccc; font-size:1rem; box-sizing: border-box;}
+        form input, form textarea, form button { margin-bottom:1rem;}
         input:focus, textarea:focus { outline:none; border-color:#0099ff; box-shadow:0 0 5px rgba(0,153,255,0.3); }
         button { background:#0066cc; color:#fff; border:none; cursor:pointer; transition:0.3s; font-weight:600; }
         button:hover { background:#005bb5; }
-        img { max-width:100%; border-radius:10px; margin-top:1rem; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+        img { max-width:100%; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
         footer { text-align:center; padding:1rem; background:#e9ecef; margin-top:2rem; font-size:0.9rem; }
 
         #toast {display: none;position: fixed;bottom: 20px;right: 50%;transform: translateX(50%);background: #28a745;color: #fff;padding: 1.5rem 2rem;border-radius: 16px;box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);z-index: 1000;min-width: 200px;max-width: 90vw;font-size: 1.6rem;box-sizing: border-box;}
@@ -57,6 +68,8 @@
 
         .carousel {
             overflow: hidden;
+            max-height: 720px;
+            position: relative;
         }
 
         .carousel-track {
@@ -64,11 +77,16 @@
             transition: transform 0.4s ease;
         }
 
-        .carousel img {
+        .carousel-track img,
+        .carousel-track video,
+        .carousel-track iframe {
             width: 100%;
+            max-height: 720px;
+            height: auto;
             flex-shrink: 0;
+            object-fit: contain;
             display: block;
-            background: white;
+            background: black;
         }
 
         .carousel-wrapper button {
@@ -90,24 +108,57 @@
         .carousel-wrapper .next { right: 0; }
 
         .carousel-wrapper button:hover {
-            background: rgba(0,0,0,0.8);
+            color: black;
+            background: white;
+        }
+
+        @media (max-width: 1030px) {
+            .header-text {
+                display: none;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .header-form {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Бурение скважин</h1>
-    <p>Работаем по всей Беларуси • Быстро • Надёжно • С гарантией</p>
-
-    <div class="header-contacts">
-        <div class="header-phones">
-            <a href="tel:+375299446002">+375 29 944-60-02</a>
-            <a href="tel:+375291231212">+375 29 123-12-12</a>
+    <div class="header-container">
+        <!-- Логотип -->
+        <div class="logo">
+            <img src="images/logo3.png" alt="Super Bur" height="50">
         </div>
-        <div class="header-icons">
-            <a href="https://t.me/matsiuk_alexander" class="telegram"><img src="telegram.svg" alt="Telegram"></a>
-            <a href="viber://chat?number=+375291231212" class="viber"><img src="viber.svg" alt="Viber"></a>
+
+        <!-- Основной текст -->
+        <div class="header-text">
+            <p>Бурение скважин под воду <br>в Минске и Минской области</p>
+        </div>
+
+        <!-- Контакты -->
+        <div class="header-contacts">
+            <div class="header-phones">
+                <a href="tel:+375298399627">📞+375 29 839-96-27</a>
+                <a href="tel:+375299446002">📞+375 29 944-60-02</a>
+            </div>
+            <div class="header-icons">
+                <a href="https://t.me/matsiuk_alexander" class="telegram">
+                    <img src="telegram.svg" alt="Telegram">
+                </a>
+                <a href="viber://chat?number=+375298399627" class="viber">
+                    <img src="viber.svg" alt="Viber">
+                </a>
+            </div>
+        </div>
+
+        <!-- Обратная связь -->
+        <div class="header-form" id="shortContactForm">
+            <input type="tel" name="phone" placeholder="Ваш телефон" required>
+            <button type="submit">Заказать звонок</button>
         </div>
     </div>
 </header>
@@ -148,15 +199,29 @@
     <div class="carousel-wrapper">
         <div class="carousel">
             <div class="carousel-track">
-                <img src="picture1.svg" alt="Бурение скважины">
-                <img src="picture2.png" alt="Бурение скважины">
-                <img src="picture3.jpg" alt="Бурение скважины">
+                <img src="images/04.jpg" alt="Бурение скважины">
+                <img src="images/01.jpg" alt="Бурение скважины">
+                <!--<img src="images/02.jpg" alt="Бурение скважины">-->
+                <!--<img src="images/03.jpg" alt="Бурение скважины">-->
+                <img src="images/05.jpg" alt="Бурение скважины">
+                <img src="images/06.jpg" alt="Бурение скважины">
+                <img src="images/07.jpg" alt="Бурение скважины">
+                <img src="images/08.jpg" alt="Бурение скважины">
+                <img src="images/09.jpg" alt="Бурение скважины">
+                <img src="images/10.jpg" alt="Бурение скважины">
+                <!--<img src="images/11.jpg" alt="Бурение скважины">-->
+                <img src="images/12.jpg" alt="Бурение скважины">
+                <iframe src="https://www.youtube.com/embed/OgkJ4hNgDRM?enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/4uhsYIE7CXo?enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/IXj4t-21J4w?enablejsapi=1" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
         <button class="prev">&#10094;</button>
         <button class="next">&#10095;</button>
     </div>
 </section>
+
+<script src="https://www.youtube.com/iframe_api"></script>
 
 <section class="services">
     <h2>Почему выбирают нас</h2>
@@ -174,9 +239,9 @@
     <h2>Свяжитесь с нами</h2>
     <div class="contacts">
         <a href="https://t.me/matsiuk_alexander" class="telegram"><img src="telegram.svg" alt="Telegram">Telegram</a>
-        <a href="viber://chat?number=+375291231212" class="viber"><img src="viber.svg" alt="Viber">Viber</a>
+        <a href="viber://chat?number=+375298399627" class="viber"><img src="viber.svg" alt="Viber">Viber</a>
+        <a href="tel:+375298399627" class="tel"><img src="phone.svg" alt="Позвонить">+375 29 839-96-27</a>
         <a href="tel:+375299446002" class="tel"><img src="phone.svg" alt="Позвонить">+375 29 944-60-02</a>
-        <a href="tel:+375291231212" class="tel"><img src="phone.svg" alt="Позвонить">+375 29 123-12-12</a>
     </div>
 </section>
 
@@ -218,6 +283,39 @@
         toast.style.display = "none";
     }
 
+    document.getElementById("shortContactForm").addEventListener("click", function(e){
+        if(e.target.type === "submit") {
+            e.preventDefault();
+            const phoneInput = this.querySelector('input[name="phone"]');
+            const phone = phoneInput.value;
+
+            // Валидация телефона (опционально)
+            if(!phone) {
+                showToast("Введите номер телефона", true);
+                return;
+            }
+
+            const text = `📩 Новая заявка с сайта\n\n👤 📞 Телефон: ${phone}`;
+
+            fetch(URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ chat_id: CHAT_ID, text: text, parse_mode: "HTML" })
+            })
+                .then(res => {
+                    if(res.ok){
+                        showToast("Заявка отправлена!");
+                        phoneInput.value = ""; // Очищаем поле
+                    } else {
+                        showToast("❌ Ошибка при отправке.", true);
+                    }
+                })
+                .catch(() => {
+                    showToast("⚠️ Сеть недоступна.", true);
+                });
+        }
+    });
+    
     document.getElementById("contactForm").addEventListener("submit", function(e){
         e.preventDefault();
         const name = this.name.value;
@@ -249,24 +347,60 @@
     const prevButton = document.querySelector('.prev');
     const nextButton = document.querySelector('.next');
     let index = 0;
+    
+    // список YouTube плееров
+    let ytPlayers = [];
+
+    // YouTube API вызывает эту функцию после загрузки
+    function onYouTubeIframeAPIReady() {
+        const iframes = track.querySelectorAll('iframe');
+        iframes.forEach((iframe, i) => {
+            ytPlayers[i] = new YT.Player(iframe);
+        });
+    }
+
+    // ставим все видео на паузу
+    function pauseAllVideos() {
+        ytPlayers.forEach(p => {
+            if (p && p.pauseVideo) {
+                p.pauseVideo();
+            }
+        });
+    }
+
+    function updateSlideWidths() {
+        const carouselWidth = track.parentElement.getBoundingClientRect().width;
+
+        // фиксируем ширину для каждого слайда
+        slides.forEach(slide => {
+            slide.style.minWidth = `${carouselWidth}px`;
+        });
+
+        // обновляем позицию
+        track.style.transform = `translateX(-${index * carouselWidth}px)`;
+    }
 
     function updateCarousel() {
-        const width = track.getBoundingClientRect().width; // ширина видимой области
-        track.style.transform = `translateX(-${index * width}px)`;
+        const carouselWidth = track.parentElement.getBoundingClientRect().width;
+        track.style.transform = `translateX(-${index * carouselWidth}px)`;
     }
 
     nextButton.addEventListener('click', () => {
+        pauseAllVideos();
         index = (index + 1) % slides.length;
         updateCarousel();
     });
 
     prevButton.addEventListener('click', () => {
+        pauseAllVideos();
         index = (index - 1 + slides.length) % slides.length;
         updateCarousel();
     });
 
-    window.addEventListener('resize', updateCarousel);
-    updateCarousel();
+    window.addEventListener('resize', updateSlideWidths);
+
+    // при загрузке страницы
+    updateSlideWidths();
 </script>
 
 </body>
