@@ -385,7 +385,9 @@
 
     // Маска с фиксированной частью +375
     const maskOptions = {
-        mask: '+{375} (00) 000-00-00'
+        mask: '+{375} (00) 000-00-00',
+        lazy: false, 
+        overwrite: true, 
     };
     if (typeof IMask !== 'undefined') {
         IMask(phoneInput, maskOptions);
@@ -449,8 +451,8 @@
         const message = this.message.value;
 
         // Валидация телефона (опционально)
-        if(!phone) {
-            showToast("Введите номер телефона", true);
+        if(!phone || phone.includes('_')) {
+            showToast("Введите корректный номер телефона", true);
             return;
         }
 
