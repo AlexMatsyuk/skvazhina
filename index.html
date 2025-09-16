@@ -11,6 +11,7 @@
 глубина бурения скважины до 200 метров, бурение скважин на воду для коттеджа, бурение скважин дача, бурение абиссинской скважины, скважина на воду под воду 
 (синоним), скорость бурения скважины (за 1 день), профессиональное оборудование бурение скважин, гарантия на скважину, рассрочка бурение скважин, работа по 
 договору бурение, услуги бурения скважин в Беларуси, бурение скважин Минск цена/стоимость, бурение скважин в Минске и области, бурение скважин РБ">
+    <script src="https://unpkg.com/imask"></script>
 
     <style>
         body {font-family: 'Segoe UI', Tahoma, sans-serif;background: #7593a630;margin: 0;color: #333;padding-top: 90px; /* Чтобы контент не скрывался под фиксированным хедером */}
@@ -192,7 +193,7 @@
 
         <!-- Обратная связь -->
         <div class="header-form" id="shortContactForm">
-            <input type="tel" name="phone" placeholder="Ваш телефон" oninvalid="this.setCustomValidity('Пожалуйста, укажите ваш номер телефона')" oninput="this.setCustomValidity('')" required>
+            <input type="tel" name="phone" placeholder="+375 (__) ___-__-__" required oninvalid="this.setCustomValidity('Пожалуйста, укажите ваш номер телефона')" oninput="this.setCustomValidity('')" required>
             <button type="submit">Заказать звонок</button>
         </div>
 
@@ -361,7 +362,7 @@
     <h2><br>Заказать обратный звонок</h2>
     <form id="contactForm">
         <input type="text" name="name" placeholder="Ваше имя">
-        <input type="tel" name="phone" placeholder="Ваш телефон" oninvalid="this.setCustomValidity('Пожалуйста, укажите ваш номер телефона')" oninput="this.setCustomValidity('')" required>
+        <input type="tel" name="phone2" placeholder="+375 (__) ___-__-__" oninvalid="this.setCustomValidity('Пожалуйста, укажите ваш номер телефона')" oninput="this.setCustomValidity('')" required>
         <textarea name="message" rows="4" placeholder="Комментарий (необязательно)"></textarea>
         <button type="submit">Отправить заявку</button>
     </form>
@@ -378,6 +379,19 @@
 </div>
 
 <script>
+    // Маска для белорусских номеров
+    const phoneInput = document.querySelector('input[name="phone"]');
+    const phoneInput2 = document.querySelector('input[name="phone2"]');
+
+    // Маска с фиксированной частью +375
+    const maskOptions = {
+        mask: '+{375} (00) 000-00-00'
+    };
+    if (typeof IMask !== 'undefined') {
+        IMask(phoneInput, maskOptions);
+        IMask(phoneInput2, maskOptions);
+    }
+    
     const TOKEN = "8477142374:AAEG87UhHnxBdUa4_s5xrUqg6M3gbTfVhD0";
     const CHAT_ID = "-4980958139";
     const URL = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
@@ -398,12 +412,11 @@
     document.getElementById("shortContactForm").addEventListener("click", function(e){
         if(e.target.type === "submit") {
             e.preventDefault();
-            const phoneInput = this.querySelector('input[name="phone"]');
             const phone = phoneInput.value;
 
-            // Валидация телефона (опционально)
-            if(!phone) {
-                showToast("Введите номер телефона", true);
+            // Валидация
+            if(!phone || phone.includes('_')) {
+                showToast("Введите корректный номер телефона", true);
                 return;
             }
 
@@ -414,26 +427,32 @@
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ chat_id: CHAT_ID, text: text, parse_mode: "HTML" })
             })
-                .then(res => {
-                    if(res.ok){
-                        showToast("Заявка отправлена!");
-                        phoneInput.value = ""; // Очищаем поле
-                    } else {
-                        showToast("❌ Ошибка при отправке.", true);
-                    }
-                })
-                .catch(() => {
-                    showToast("⚠️ Сеть недоступна.", true);
-                });
+            .then(res => {
+                if(res.ok){
+                    showToast("Заявка отправлена!");
+                    phoneInput.value = ""; // Очищаем поле
+                } else {
+                    showToast("❌ Ошибка при отправке.", true);
+                }
+            })
+            .catch(() => {
+                showToast("⚠️ Сеть недоступна.", true);
+            });
         }
     });
 
     document.getElementById("contactForm").addEventListener("submit", function(e){
         e.preventDefault();
         const name = this.name.value;
-        const phone = this.phone.value;
+        const phone = this.phone2.value;
         const message = this.message.value;
 
+        // Валидация телефона (опционально)
+        if(!phone) {
+            showToast("Введите номер телефона", true);
+            return;
+        }
+        
         const text = `📩 Новая заявка с сайта\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n💬 Сообщение: ${message}`;
 
         fetch(URL, {
