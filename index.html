@@ -3,52 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Бурение скважин в Беларуси</title>
+    <title>Бурение скважин на воду в Минске и Минской области | Супер Бур</title>
     <link rel="icon" href="favicon.svg" type="image/x-icon">
+    <meta name="description" content="Бурение скважин на воду в Минске и Минской области. Глубина до 200 м. Работаем за 1 день, гарантия на воду, рассрочка до 60 мес. Цена от 70 руб/м.">
+    <meta name="keywords" 
+          content="бурение скважин Минск, бурение скважин Беларусь, бурение скважин Минская область, скважина на воду, бурение под воду Минская область, бурение скважин цена, бурение скважин в Минске и области, скважины до 200 м, обустройство скважин, бурение воды, бурение скважин на воду Минск, бурение скважин на воду Минской области, цена бурения скважин на воду, бурение скважин под ключ Минск, обустройство скважины, 
+глубина бурения скважины до 200 метров, бурение скважин на воду для коттеджа, бурение скважин дача, бурение абиссинской скважины, скважина на воду под воду 
+(синоним), скорость бурения скважины (за 1 день), профессиональное оборудование бурение скважин, гарантия на скважину, рассрочка бурение скважин, работа по 
+договору бурение, услуги бурения скважин в Беларуси, бурение скважин Минск цена/стоимость, бурение скважин в Минске и области, бурение скважин РБ">
 
     <style>
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background:#7593a630; margin:0; color:#333; }
-        header { background: linear-gradient(90deg, #18191a, #7694a8); color:#fff; padding:1rem 1rem; text-align:center; }
-        header h1 { margin:0; font-size:2.2rem; }
+        body {font-family: 'Segoe UI', Tahoma, sans-serif;background: #7593a630;margin: 0;color: #333;padding-top: 90px; /* Чтобы контент не скрывался под фиксированным хедером */}
+        header {position: fixed;top: 0;left: 0;width: 100%;height: 80px; /* Фиксированная высота */z-index: 1000;background: linear-gradient(90deg, #18191a, #7694a8);color: #fff;display: flex;align-items: center; /* Вертикальное выравнивание */padding: 0 1rem;box-sizing: border-box;}
+        .header-container {display: flex;align-items: center;justify-content: space-between;max-width: 1080px;width: 100%;margin: 0 auto;gap: 0rem;height: 100%;}
+        .logo {display: flex;align-items: center;height: 100%;width:10%;}
+        .logo img {display: block;max-height: 50px;max-width: 90px;height: auto;width: auto;}
+        .header-text {display: flex;flex-direction: column;justify-content: center;text-align: center;width:30%}
+        .header-text p {margin: 0;line-height: 1.3;}
+        .header-contacts {display: flex;align-items: center;gap: 1.5rem;height: 100%;}
+        .header-phones {display: flex;flex-direction: column;justify-content: center;gap: 0.2rem;}
+        .header-phones a {color: #fff;text-decoration: none;font-weight: 600;white-space: nowrap;}
+        .header-phones a:hover {text-decoration: underline;}
+        .header-icons {display: flex;align-items: center;gap: 1rem;min-width:150px}
+        .header-icons a img {width: 32px;height: 32px;display: block;transition: transform 0.3s;}
+        .header-icons a:hover img {transform: scale(1.1);}
+        .header-form {display: flex;align-items: center;gap: 0.5rem;height: 100%;}
+        .header-form-scroll {display:none}
+        .header-form input {padding: 0.6rem 0.8rem;border-radius: 4px;border: none;font-size: 1rem;height: 40px;box-sizing: border-box;}
+        .header-form button, .header-form-scroll button {padding: 0.6rem 1rem;border: none;border-radius: 4px;background-color: #1a2a44;color: #fff;cursor: pointer;font-weight: 600;transition: 0.3s;height: 40px;white-space: nowrap;}
+        .header-form button:hover, .header-form-scroll button:hover  {background-color: #3a4f78;}
+
+        h1 { margin:1rem; font-size:2.2rem; text-align:center;}
         header p { margin:0.5rem 0 0; font-size:1.1rem; }
         section { max-width:1080px; margin:1rem auto; padding:1rem; }
         .contacts { display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; margin-top:1rem; }
         .contacts a {display: inline-flex;align-items: center;justify-content: center;gap: 0.5rem;padding: 0.8rem 1.5rem;border: 2px solid #1a2a44;background: #fff;color: #1a2a44;border-radius: 6px;font-weight: 600;text-decoration: none;transition: 0.3s;}
         .contacts a img {width: 24px;height: 24px;display: inline-block;margin-top: 0;box-shadow: none;border-radius: 0;}
         .contacts a:hover {background: #f0f4f8;transform: translateY(-2px);}
-        .header-icons {display: flex;align-items: center;gap: 1rem;}
-        .header-icons a img {width: 32px;height: 32px;display: block;margin-top:0;}
-        .header-icons a:hover img {transform: scale(1.1);}
-        .header-contacts {display: flex;justify-content: center;align-items: center;gap: 1.5rem;margin-top: 1rem;}
-        .header-phones {display: flex;flex-direction: column;justify-content: center;gap: 0.2rem;}
-        .header-phones a {color: #fff;text-decoration: none;font-weight: 600;font-size: 1rem;}
-        .header-phones a:hover {text-decoration: underline;}
 
         .services {max-width: 1080px;margin: 0 auto;padding: 0;text-align: center;}
-        .services h2 {font-size: 2rem;margin-bottom: 0.5rem;}
-        .service-cards {display: flex;flex-wrap: wrap;justify-content: center;gap: 1rem;}
+        .services h2 {text-align: center;}
+        .service-cards {display: flex;flex-wrap: wrap;justify-content: center;gap: 1rem;text-align: left;}
         .service-card {background: #fff;border-radius: 10px;padding: 1.5rem;width: 260px;box-shadow: 0 6px 12px rgba(0,0,0,0.1);transition: transform 0.3s;}
         .service-card:hover {transform: translateY(-5px);}
         .service-card h3 {font-size: 1.2rem;margin-bottom: 0.5rem;}
         .service-card p {font-size: 1rem;margin-bottom: 1rem;color: #555;}
         .service-card .price {font-weight: 700;color: #0066cc;font-size: 1.1rem;}
+        .service-icon {position: absolute;top: 10px;right: 10px;width: 40px;height: 40px;}
+        .service-icon img {width: 100%;height: 100%;object-fit: contain;}
 
-        .checklist {list-style: none;padding: 1rem;font-size: 1.1rem;color: #333;text-align: left;display: inline-block;}  
+        .checklist {list-style: none;font-size: 1.1rem;color: #333;text-align: left;display: inline-block;}
         .checklist li {margin-bottom: 0.6rem;line-height: 1.5;}
 
         form { background:#fff; padding:2rem; border-radius:10px; box-shadow:0 6px 15px rgba(0,0,0,0.1); }
-        input, textarea, button { font-family: arial; width:100%; margin-bottom:1rem; padding:0.9rem; border-radius:6px; border:1px solid #ccc; font-size:1rem; box-sizing: border-box;}
+        input, textarea, button { font-family: arial; width:100%; padding:0.9rem; border-radius:6px; border:1px solid #ccc; font-size:1rem; box-sizing: border-box;}
+        form input, form textarea, form button { margin-bottom:1rem;}
         input:focus, textarea:focus { outline:none; border-color:#0099ff; box-shadow:0 0 5px rgba(0,153,255,0.3); }
         button { background:#0066cc; color:#fff; border:none; cursor:pointer; transition:0.3s; font-weight:600; }
         button:hover { background:#005bb5; }
-        img { max-width:100%; border-radius:10px; margin-top:1rem; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+        img { max-width:100%; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
         footer { text-align:center; padding:1rem; background:#e9ecef; margin-top:2rem; font-size:0.9rem; }
 
         #toast {display: none;position: fixed;bottom: 20px;right: 50%;transform: translateX(50%);background: #28a745;color: #fff;padding: 1.5rem 2rem;border-radius: 16px;box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);z-index: 1000;min-width: 200px;max-width: 90vw;font-size: 1.6rem;box-sizing: border-box;}
         #toast.error {background: #dc3545;}
         #toast .close {float: right;margin-left: 1rem;cursor: pointer;font-weight: bold;font-size: 1.6rem;transition: color 0.2s;}
         #toast .close:hover {color: red;}
-        
+
         .carousel-wrapper {
             position: relative;
             max-width: 1080px;
@@ -57,6 +77,8 @@
 
         .carousel {
             overflow: hidden;
+            max-height: 720px;
+            position: relative;
         }
 
         .carousel-track {
@@ -64,11 +86,16 @@
             transition: transform 0.4s ease;
         }
 
-        .carousel img {
+        .carousel-track img,
+        .carousel-track video,
+        .carousel-track iframe {
             width: 100%;
+            max-height: 720px;
+            height: auto;
             flex-shrink: 0;
+            object-fit: contain;
             display: block;
-            background: white;
+            background: black;
         }
 
         .carousel-wrapper button {
@@ -90,67 +117,206 @@
         .carousel-wrapper .next { right: 0; }
 
         .carousel-wrapper button:hover {
-            background: rgba(0,0,0,0.8);
+            color: black;
+            background: white;
+        }
+
+        @media (max-width: 1030px) {
+            .header-text {
+                display: none;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .header-form {
+                display: none;
+            }
+            .header-form-scroll {
+                display: flex;align-items: center;gap: 0.5rem;height: 100%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .logo {
+                display: none;
+            }
+        }
+
+        @media (max-width: 470px) {
+            .header-contacts {
+                gap: 0.5rem;
+            }
+            .header-phones {
+                gap: 0.7rem;
+                font-size: 12px;
+            }
+            .header-icons {
+                gap: 0.5rem;
+                min-width: 100px;
+            }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Бурение скважин</h1>
-    <p>Работаем по всей Беларуси • Быстро • Надёжно • С гарантией</p>
-
-    <div class="header-contacts">
-        <div class="header-phones">
-            <a href="tel:+375299446002">+375 29 944-60-02</a>
-            <a href="tel:+375291231212">+375 29 123-12-12</a>
+    <div class="header-container">
+        <!-- Логотип -->
+        <div class="logo">
+            <img src="images/logo3.png" alt="Super Bur - бурение скважин на воду в Минске и Минской области">
         </div>
-        <div class="header-icons">
-            <a href="https://t.me/matsiuk_alexander" class="telegram"><img src="telegram.svg" alt="Telegram"></a>
-            <a href="viber://chat?number=+375291231212" class="viber"><img src="viber.svg" alt="Viber"></a>
+
+        <!-- Основной текст -->
+        <div class="header-text">
+            <p>Бурение скважин на воду <br>в Минске и Минской области</p>
+        </div>
+
+        <!-- Контакты -->
+        <div class="header-contacts">
+            <div class="header-phones">
+                <a href="tel:+375298399627">📞+375 29 839-96-27</a>
+                <a href="tel:+375299446002">📞+375 29 944-60-02</a>
+            </div>
+            <div class="header-icons">
+                <a href="https://t.me/matsiuk_alexander" class="telegram">
+                    <img src="images/telegram.svg" alt="Telegram Super Bur">
+                </a>
+                <a href="viber://chat?number=+375298399627" class="viber">
+                    <img src="images/viber.svg" alt="Viber Super Bur">
+                </a>
+                <a href="https://www.instagram.com/bur_pchelca?igsh=MXBqcXcya21mbXg0Zw%3D%3D" class="instagram" target="_blank">
+                    <img src="images/instagram.svg" alt="Instagram бурение скважин">
+                </a>
+            </div>
+        </div>
+
+        <!-- Обратная связь -->
+        <div class="header-form" id="shortContactForm">
+            <input type="tel" name="phone" placeholder="Ваш телефон" required>
+            <button type="submit">Заказать звонок</button>
+        </div>
+
+        <div class="header-form-scroll" id="scrollContactForm">
+            <button onclick="document.getElementById('scroll-section').scrollIntoView({behavior: 'smooth'});" style="white-space: normal; width: 100px;display: flex; justify-content: center; align-items: center; text-align: center;">Заказать звонок</button>
         </div>
     </div>
 </header>
 
+<h1>Бурение скважин на воду в Минске и Минской области</h1>
+
 <section class="services">
-    <h2>Наши услуги</h2>
-    <div class="service-cards">
-        <div class="service-card">
-            <h3>Бурение на воду</h3>
-            <p>Глубина до 30 м, установка обсадной трубы, гарантия качества.</p>
-            <span class="price">от 500 $</span>
+    <img src="images/header2.png" alt="Буровая установка для скважины на воду в Минске">
+</section>
+
+<section class="services">
+    <div class="eggs-container" style="display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; margin-top:1rem;">
+        <div class="eggs_item" style="max-height: 150px; background:#fff; border-radius:10px; padding:1rem; width:220px; text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition:0.3s;">
+            <div class="eggs_item-icon">
+                <img src="images/features/77.png" alt="Бурение скважин недорого - от 70 рублей за метр" style="width:60px; height:60px;box-shadow:none">
+            </div>
+            <h4 class="eggs_item-title" style="font-size:1.1rem;margin: 0rem 0rem 0rem 0rem;">От 70 рублей<br>за 1 метр</h4>
         </div>
-        <div class="service-card">
-            <h3>Бурение скважин для коттеджей</h3>
-            <p>Глубина до 50 м, комплексное оборудование, под ключ.</p>
-            <span class="price">от 800 $</span>
+        <div class="eggs_item" style="max-height: 150px; background:#fff; border-radius:10px; padding:1rem; width:220px; text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition:0.3s;">
+            <div class="eggs_item-icon">
+                <img src="images/features/88.png" alt="Работаем по Минску и Минской области" style="width:60px; height:60px;box-shadow:none">
+            </div>
+            <h4 class="eggs_item-title" style="font-size:1.1rem;margin: 0rem 0rem 0rem 0rem;">В Минске<br>и Минской области</h4>
         </div>
-        <div class="service-card">
-            <h3>Обслуживание и чистка скважин</h3>
-            <p>Чистка, промывка, диагностика водоносных слоёв.</p>
-            <span class="price">от 150 $</span>
+        <div class="eggs_item" style="max-height: 150px; background:#fff; border-radius:10px; padding:1rem; width:220px; text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition:0.3s;">
+            <div class="eggs_item-icon">
+                <img src="images/features/66.png" alt="Скважины глубиной до 200 метров" style="width:60px; height:60px;box-shadow:none">
+            </div>
+            <h4 class="eggs_item-title" style="font-size:1.1rem;margin: 0rem 0rem 0rem 0rem;">Глубина<br>до 200 м</h4>
         </div>
-        <div class="service-card">
-            <h3>Обслуживание и чистка скважин</h3>
-            <p>Чистка, промывка, диагностика водоносных слоёв.</p>
-            <span class="price">от 150 $</span>
+        <div class="eggs_item" style="max-height: 150px; background:#fff; border-radius:10px; padding:1rem; width:220px; text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition:0.3s;">
+            <div class="eggs_item-icon">
+                <img src="images/features/55.png" alt="Бурение скважин быстро - за 1 день" style="width:60px; height:60px;box-shadow:none">
+            </div>
+            <h4 class="eggs_item-title" style="font-size:1.1rem;margin: 0rem 0rem 0rem 0rem;">Бурение за 1 день<br>с первого подхода</h4>
         </div>
-        <div class="service-card">
-            <h3>Обслуживание и чистка скважин</h3>
-            <p>Чистка, промывка, диагностика водоносных слоёв.</p>
-            <span class="price">от 150 $</span>
+        <div class="eggs_item" style="max-height: 150px; background:#fff; border-radius:10px; padding:1rem; width:220px; text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition:0.3s;">
+            <div class="eggs_item-icon">
+                <img src="images/features/11.png" alt="Современное оборудование для бурения скважин" style="width:60px; height:60px;box-shadow:none">
+            </div>
+            <h4 class="eggs_item-title" style="font-size:1.1rem;margin: 0rem 0rem 0rem 0rem;">Профессиональное<br>оборудование</h4>
+        </div>
+        <div class="eggs_item" style="max-height: 150px; background:#fff; border-radius:10px; padding:1rem; width:220px; text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition:0.3s;">
+            <div class="eggs_item-icon">
+                <img src="images/features/22.png" alt="Рассрочка на бурение скважины до 60 месяцев" style="width:60px; height:60px;box-shadow:none">
+            </div>
+            <h4 class="eggs_item-title" style="font-size:1.1rem;margin: 0rem 0rem 0rem 0rem;">Рассрочка<br>до 60 месяцев</h4>
+        </div>
+        <div class="eggs_item" style="max-height: 150px; background:#fff; border-radius:10px; padding:1rem; width:220px; text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition:0.3s;">
+            <div class="eggs_item-icon">
+                <img src="images/features/33.png" alt="Работаем по договору" style="width:60px; height:60px;box-shadow:none">
+            </div>
+            <h4 class="eggs_item-title" style="font-size:1.1rem;margin: 0rem 0rem 0rem 0rem;">Работаем<br>по договору</h4>
+        </div>
+        <div class="eggs_item" style="max-height: 150px; background:#fff; border-radius:10px; padding:1rem; width:220px; text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition:0.3s;">
+            <div class="eggs_item-icon">
+                <img src="images/features/44.png" alt="Гарантия на бурение скважины и воду" style="width:60px; height:60px;box-shadow:none">
+            </div>
+            <h4 class="eggs_item-title" style="font-size:1.1rem;margin: 0rem 0rem 0rem 0rem;">Гарантия<br>на скважину</h4>
         </div>
     </div>
 </section>
 
 <section class="services">
-    <h2>Примеры наших работ</h2>
+    <h2><br>Наши услуги</h2>
+    <div class="service-cards">
+        <div class="service-card">
+            <h3>Бурение скважин</h3>
+            <p><strong>Бурим для:</strong></p>
+            <ul>
+                <li>домов</li>
+                <li>дач</li>
+                <li>коттеджей</li>
+                <li>коттеджных поселков</li>
+                <li>садовых товариществ</li>
+                <li>промышленных предприятий</li>
+            </ul>
+        </div>
+        <div class="service-card">
+            <h3>Обустройство скважины</h3>
+            <p><strong>Для чего нужно обустройство скважины:</strong></p>
+            <ul>
+                <li>защита от попадания в скважину различного мусора и грязи</li>
+                <li>защита от внешних и грунтовых вод</li>
+                <li>защита от промерзания для круглогодичного использования</li>
+                <li>размещение насосного оборудования и автоматики внутри скважины</li>
+            </ul>
+        </div>
+        <div class="service-card">
+            <h3>Бурение разной глубины</h3>
+            <p><strong>Для каких задач подходит:</strong></p>
+            <ul>
+                <li>Скважины средней глубины<br>До 40 м, самый популярный вариант, оптимальны для частных домов и дач</li>
+                <li>Глубокие скважины<br>До 200 м, подходят для больших домов, коттеджных поселков и предприятий</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="services">
+    <h2><br>Примеры наших работ</h2>
     <div class="carousel-wrapper">
         <div class="carousel">
             <div class="carousel-track">
-                <img src="picture1.svg" alt="Бурение скважины">
-                <img src="picture2.png" alt="Бурение скважины">
-                <img src="picture3.jpg" alt="Бурение скважины">
+                <img src="images/04.jpg" alt="Пример бурения скважины в Минске">
+                <img src="images/01.jpg" alt="Буровая установка в работе">
+                <!--<img src="images/02.jpg" alt="Бурение скважины">-->
+                <!--<img src="images/03.jpg" alt="Бурение скважины">-->
+                <img src="images/05.jpg" alt="Готовая скважина для воды">
+                <img src="images/06.jpg" alt="Пример монтажа оборудования для скважины">
+                <img src="images/07.jpg" alt="Бурение скважины для коттеджа">
+                <img src="images/08.jpg" alt="Пример обустройства скважины">
+                <img src="images/09.jpg" alt="Чистая вода из скважины">
+                <img src="images/10.jpg" alt="Бурение скважины для дачи">
+                <!--<img src="images/11.jpg" alt="Бурение скважины">-->
+                <img src="images/12.jpg" alt="Скважина под ключ в Минской области">
+                <iframe src="https://www.youtube.com/embed/OgkJ4hNgDRM?enablejsapi=1" title="Видео бурения скважины" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/4uhsYIE7CXo?enablejsapi=1" title="Пример бурения воды" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/IXj4t-21J4w?enablejsapi=1" title="Обустройство скважины" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
         <button class="prev">&#10094;</button>
@@ -158,30 +324,41 @@
     </div>
 </section>
 
+<script src="https://www.youtube.com/iframe_api"></script>
+
 <section class="services">
-    <h2>Почему выбирают нас</h2>
+    <h2><br><br>Почему выбирают нас?</h2>
     <ul class="checklist">
-        <li>✅ Бурение обсадных скважин диаметром 110–160 мм на глубину до 60 метров</li>
-        <li>✅ Установка фильтров и насосного оборудования в соответствии с гидрогеологическими условиями</li>
-        <li>✅ Промывка и промер дебита скважины после бурения для контроля водоносного слоя</li>
-        <li>✅ Использование глинистых растворов для стабилизации стенок и минимизации осыпания породы</li>
-        <li>✅ Контроль вертикальности скважины и точности бурения с помощью гироскопических приборов</li>
-        <li>✅ Работа 7 дней в неделю, возможен срочный выезд на объект в течение 24 часов</li>
+        <li>✅ У нас богатый опыт</li>
+        <li>✅ Клиенты обращаются к нам по рекомендациям</li>
+        <li>✅ Имеется гарантия на воду</li>
+        <li>✅ Доступные цены — от 70 рублей за метр</li>
+        <li>✅ Работаем в Минске и Минской области</li>
+        <li>✅ Бурим скважины глубиной до 200 метров</li>
+        <li>✅ Выполняем бурение за 1 день с первого подхода</li>
+        <li>✅ Используем профессиональное оборудование</li>
+        <li>✅ Предлагаем рассрочку до 60 месяцев</li>
+        <li>✅ Работаем по официальному договору</li>
+        <li>✅ Даем гарантию на скважину</li>
+        <li>✅ Оперативная обратная связь</li>
+        <li>✅ Подходим как для частных домов, так и для предприятий</li>
     </ul>
 </section>
+
 
 <section class="services">
     <h2>Свяжитесь с нами</h2>
     <div class="contacts">
-        <a href="https://t.me/matsiuk_alexander" class="telegram"><img src="telegram.svg" alt="Telegram">Telegram</a>
-        <a href="viber://chat?number=+375291231212" class="viber"><img src="viber.svg" alt="Viber">Viber</a>
+        <a href="https://t.me/matsiuk_alexander" class="telegram"><img src="images/telegram.svg" alt="Telegram">Telegram</a>
+        <a href="viber://chat?number=+375298399627" class="viber"><img src="images/viber.svg" alt="Viber">Viber</a>
+        <a href="https://www.instagram.com/bur_pchelca?igsh=MXBqcXcya21mbXg0Zw%3D%3D" class="instagram" target="_blank"><img src="images/instagram.svg" alt="instagram">           Instagram</a>
+        <a href="tel:+375298399627" class="tel"><img src="phone.svg" alt="Позвонить">+375 29 839-96-27</a>
         <a href="tel:+375299446002" class="tel"><img src="phone.svg" alt="Позвонить">+375 29 944-60-02</a>
-        <a href="tel:+375291231212" class="tel"><img src="phone.svg" alt="Позвонить">+375 29 123-12-12</a>
     </div>
 </section>
 
-<section class="services">
-    <h2>Заказать обратный звонок</h2>
+<section class="services" id="scroll-section">
+    <h2><br>Заказать обратный звонок</h2>
     <form id="contactForm">
         <input type="text" name="name" placeholder="Ваше имя" required>
         <input type="tel" name="phone" placeholder="Ваш телефон" required>
@@ -191,7 +368,7 @@
 </section>
 
 <footer>
-    <p>© 2025 Бурение скважин. Все права защищены.</p>
+    <p>© 2025 Супер Бур – бурение скважин в Минске и Минской области. Все права защищены.</p>
 </footer>
 
 <!-- Всплывающее уведомление -->
@@ -217,6 +394,39 @@
     function closeToast(){
         toast.style.display = "none";
     }
+
+    document.getElementById("shortContactForm").addEventListener("click", function(e){
+        if(e.target.type === "submit") {
+            e.preventDefault();
+            const phoneInput = this.querySelector('input[name="phone"]');
+            const phone = phoneInput.value;
+
+            // Валидация телефона (опционально)
+            if(!phone) {
+                showToast("Введите номер телефона", true);
+                return;
+            }
+
+            const text = `📩 Новая заявка с сайта\n\n👤 📞 Телефон: ${phone}`;
+
+            fetch(URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ chat_id: CHAT_ID, text: text, parse_mode: "HTML" })
+            })
+                .then(res => {
+                    if(res.ok){
+                        showToast("Заявка отправлена!");
+                        phoneInput.value = ""; // Очищаем поле
+                    } else {
+                        showToast("❌ Ошибка при отправке.", true);
+                    }
+                })
+                .catch(() => {
+                    showToast("⚠️ Сеть недоступна.", true);
+                });
+        }
+    });
 
     document.getElementById("contactForm").addEventListener("submit", function(e){
         e.preventDefault();
@@ -250,23 +460,59 @@
     const nextButton = document.querySelector('.next');
     let index = 0;
 
+    // список YouTube плееров
+    let ytPlayers = [];
+
+    // YouTube API вызывает эту функцию после загрузки
+    function onYouTubeIframeAPIReady() {
+        const iframes = track.querySelectorAll('iframe');
+        iframes.forEach((iframe, i) => {
+            ytPlayers[i] = new YT.Player(iframe);
+        });
+    }
+
+    // ставим все видео на паузу
+    function pauseAllVideos() {
+        ytPlayers.forEach(p => {
+            if (p && p.pauseVideo) {
+                p.pauseVideo();
+            }
+        });
+    }
+
+    function updateSlideWidths() {
+        const carouselWidth = track.parentElement.getBoundingClientRect().width;
+
+        // фиксируем ширину для каждого слайда
+        slides.forEach(slide => {
+            slide.style.minWidth = `${carouselWidth}px`;
+        });
+
+        // обновляем позицию
+        track.style.transform = `translateX(-${index * carouselWidth}px)`;
+    }
+
     function updateCarousel() {
-        const width = track.getBoundingClientRect().width; // ширина видимой области
-        track.style.transform = `translateX(-${index * width}px)`;
+        const carouselWidth = track.parentElement.getBoundingClientRect().width;
+        track.style.transform = `translateX(-${index * carouselWidth}px)`;
     }
 
     nextButton.addEventListener('click', () => {
+        pauseAllVideos();
         index = (index + 1) % slides.length;
         updateCarousel();
     });
 
     prevButton.addEventListener('click', () => {
+        pauseAllVideos();
         index = (index - 1 + slides.length) % slides.length;
         updateCarousel();
     });
 
-    window.addEventListener('resize', updateCarousel);
-    updateCarousel();
+    window.addEventListener('resize', updateSlideWidths);
+
+    // при загрузке страницы
+    updateSlideWidths();
 </script>
 
 </body>
