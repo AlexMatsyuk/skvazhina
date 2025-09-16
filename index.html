@@ -420,7 +420,8 @@
                 return;
             }
 
-            const text = `📩 Новая заявка с сайта\n\n👤 📞 Телефон: ${phone}`;
+            const cleanPhone = phone.replace(/\D/g, '')
+            const text = `📩 Новая заявка с сайта\n\n👤 📞 Телефон: +${cleanPhone}`;
 
             fetch(URL, {
                 method: "POST",
@@ -452,8 +453,9 @@
             showToast("Введите номер телефона", true);
             return;
         }
-        
-        const text = `📩 Новая заявка с сайта\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n💬 Сообщение: ${message}`;
+
+        const cleanPhone = phone.replace(/\D/g, '')
+        const text = `📩 Новая заявка с сайта\n\n👤 Имя: ${name}\n📞 Телефон: +${cleanPhone}\n💬 Сообщение: ${message}`;
 
         fetch(URL, {
             method:"POST",
