@@ -192,7 +192,7 @@
 
         <!-- Обратная связь -->
         <div class="header-form" id="shortContactForm">
-            <input type="tel" name="phone" placeholder="Ваш телефон" required>
+            <input type="tel" name="phone" placeholder="Ваш телефон" oninvalid="this.setCustomValidity('Пожалуйста, укажите ваш номер телефона')" oninput="this.setCustomValidity('')" required>
             <button type="submit">Заказать звонок</button>
         </div>
 
@@ -360,8 +360,8 @@
 <section class="services" id="scroll-section">
     <h2><br>Заказать обратный звонок</h2>
     <form id="contactForm">
-        <input type="text" name="name" placeholder="Ваше имя" required>
-        <input type="tel" name="phone" placeholder="Ваш телефон" required>
+        <input type="text" name="name" placeholder="Ваше имя">
+        <input type="tel" name="phone" placeholder="Ваш телефон" oninvalid="this.setCustomValidity('Пожалуйста, укажите ваш номер телефона')" oninput="this.setCustomValidity('')" required>
         <textarea name="message" rows="4" placeholder="Комментарий (необязательно)"></textarea>
         <button type="submit">Отправить заявку</button>
     </form>
