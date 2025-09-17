@@ -65,7 +65,8 @@
         img { max-width:100%; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
         footer { text-align:center; padding:1rem; background:#e9ecef; margin-top:2rem; font-size:0.9rem; }
 
-        #toast {display: none;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);background: #28a745;color: #fff;padding: 1.5rem 2rem;border-radius: 16px;box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);z-index: 3000;min-width: 250px;max-width: 90vw;font-size: 1.4rem;box-sizing: border-box;text-align: center;animation: fadeInScale 0.3s ease forwards;}
+        #toastOverlay {display: none;position: fixed;top: 0; left: 0; right: 0; bottom: 0;background: rgba(0,0,0,0.4);backdrop-filter: blur(4px);z-index: 2999;}
+        #toast {display: none;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);background: #28a745;color: #fff;padding: 1.5rem 2rem;border-radius: 16px;box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);z-index: 3000;min-width: 250px;max-width: 90vw;font-size: 1.4rem;box-sizing: border-box;text-align: center;animation: fadeInScale 0.3s ease forwards;position: fixed;}
         #toast.error {background: #dc3545;}
         #toast .close {position: absolute;top: 8px;right: 12px;cursor: pointer;font-weight: bold;font-size: 1.6rem;color: #fff;opacity: 0.8;transition: opacity 0.2s;}
         #toast .close:hover {opacity: 1;}
@@ -354,6 +355,7 @@
     <p>© 2025 Супер Бур – бурение скважин в Минске и Минской области. Все права защищены.</p>
 </footer>
 
+<div id="toastOverlay"></div>
 <div id="toast">
     <span id="toastMessage">Сообщение</span>
     <span class="close" onclick="hideToast()">&times;</span>
@@ -414,6 +416,7 @@
     function showToast(message, isError = false) {
         const toast = document.getElementById("toast");
         const toastMessage = document.getElementById("toastMessage");
+        const overlay = document.getElementById("toastOverlay");
 
         toastMessage.textContent = message;
 
@@ -423,7 +426,12 @@
             toast.classList.remove("error");
         }
 
+        overlay.style.display = "block";
         toast.style.display = "block";
+
+        setTimeout(() => {
+            document.addEventListener("click", hideToast, {once: true});
+        }, 0);
 
         setTimeout(() => {
             hideToast();
@@ -432,7 +440,10 @@
 
     function hideToast() {
         const toast = document.getElementById("toast");
+        const overlay = document.getElementById("toastOverlay");
+
         toast.style.display = "none";
+        overlay.style.display = "none";
     }
 
     document.getElementById("shortContactForm").addEventListener("click", function(e){
