@@ -193,7 +193,12 @@
 
         <!-- Обратная связь -->
         <div class="header-form" id="shortContactForm">
-            <input type="tel" name="phone" placeholder="+375 (__) ___-__-__" required oninvalid="this.setCustomValidity('Пожалуйста, укажите ваш номер телефона')" oninput="this.setCustomValidity('')" required>
+            <input type="tel" name="phone" 
+                   placeholder="+375 (__) ___-__-__" 
+                   oninvalid="this.setCustomValidity('Пожалуйста, укажите ваш номер телефона')" 
+                   oninput="this.setCustomValidity('')"
+                   style="color:grey"
+                   required>
             <button type="submit">Заказать звонок</button>
         </div>
 
@@ -362,7 +367,8 @@
     <h2><br>Заказать обратный звонок</h2>
     <form id="contactForm">
         <input type="text" name="name" placeholder="Ваше имя">
-        <input type="tel" name="phone2" placeholder="+375 (__) ___-__-__" oninvalid="this.setCustomValidity('Пожалуйста, укажите ваш номер телефона')" oninput="this.setCustomValidity('')" required>
+        <input type="tel" name="phone2" style="color:grey" placeholder="+375 (__) ___-__-__" oninvalid="this.setCustomValidity('Пожалуйста, укажите ваш номер телефона')" 
+               oninput="this.setCustomValidity('')" required>
         <textarea name="message" rows="4" placeholder="Комментарий (необязательно)"></textarea>
         <button type="submit">Отправить заявку</button>
     </form>
@@ -383,6 +389,26 @@
     const phoneInput = document.querySelector('input[name="phone"]');
     const phoneInput2 = document.querySelector('input[name="phone2"]');
 
+    phoneInput.addEventListener('focus', () => {
+        phoneInput.style.color = 'black';
+    });
+
+    phoneInput.addEventListener('blur', () => {
+        if (!phoneInput.value || phoneInput.value === '+375 (__) ___-__-__') {
+            phoneInput.style.color = 'gray';
+        }
+    });
+
+    phoneInput2.addEventListener('focus', () => {
+        phoneInput2.style.color = 'black';
+    });
+
+    phoneInput2.addEventListener('blur', () => {
+        if (!phoneInput2.value || phoneInput2.value === '+375 (__) ___-__-__') {
+            phoneInput2.style.color = 'gray';
+        }
+    });
+    
     // Маска с фиксированной частью +375
     const maskOptions = {
         mask: '+{375} (00) 000-00-00',
