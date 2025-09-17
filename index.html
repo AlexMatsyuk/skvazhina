@@ -65,61 +65,37 @@
         img { max-width:100%; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
         footer { text-align:center; padding:1rem; background:#e9ecef; margin-top:2rem; font-size:0.9rem; }
 
-        #toast {display: none;position: fixed;bottom: 20px;right: 50%;transform: translateX(50%);background: #28a745;color: #fff;padding: 1.5rem 2rem;border-radius: 16px;box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);z-index: 1000;min-width: 200px;max-width: 90vw;font-size: 1.6rem;box-sizing: border-box;}
+        #toast {display: none;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);background: #28a745;color: #fff;padding: 1.5rem 2rem;border-radius: 16px;box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);z-index: 3000;min-width: 250px;max-width: 90vw;font-size: 1.4rem;box-sizing: border-box;text-align: center;animation: fadeInScale 0.3s ease forwards;}
         #toast.error {background: #dc3545;}
-        #toast .close {float: right;margin-left: 1rem;cursor: pointer;font-weight: bold;font-size: 1.6rem;transition: color 0.2s;}
-        #toast .close:hover {color: red;}
+        #toast .close {position: absolute;top: 8px;right: 12px;cursor: pointer;font-weight: bold;font-size: 1.6rem;color: #fff;opacity: 0.8;transition: opacity 0.2s;}
+        #toast .close:hover {opacity: 1;}
 
-        .carousel-wrapper {
-            position: relative;
-            max-width: 1080px;
-            margin: 0 auto;
-        }
-
-        .carousel {
-            overflow: hidden;
-            max-height: 720px;
-            position: relative;
-        }
-
-        .carousel-track {
-            display: flex;
-            transition: transform 0.4s ease;
-        }
-
-        .carousel-track img,
-        .carousel-track video,
-        .carousel-track iframe {
-            width: 100%;
-            max-height: 720px;
-            height: auto;
-            flex-shrink: 0;
-            object-fit: contain;
-            display: block;
-            background: black;
-        }
-
-        .carousel-wrapper button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: #546774;
-            color: #fff;
-            border: none;
-            font-size: 2.5rem;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            z-index: 10;
-            user-select: none;
-            width: auto
-        }
-
+        .carousel-wrapper {position: relative;max-width: 1080px;margin: 0 auto;}
+        .carousel {overflow: hidden;max-height: 720px;position: relative;}
+        .carousel-track {display: flex;transition: transform 0.4s ease;}
+        .carousel-track img, .carousel-track video, .carousel-track iframe {width: 100%;max-height: 720px;height: auto;flex-shrink: 0;object-fit: contain;display: block;background: black;}
+        .carousel-wrapper button {position: absolute;top: 50%;transform: translateY(-50%);background: #546774;color: #fff;border: none;font-size: 2.5rem;padding: 0.5rem 1rem;cursor: pointer;z-index: 10;user-select: none;width: auto}
         .carousel-wrapper .prev { left: 0; }
         .carousel-wrapper .next { right: 0; }
+        .carousel-wrapper button:hover {color: black;background: white;}
 
-        .carousel-wrapper button:hover {
-            color: black;
-            background: white;
+        .modal-overlay {position: fixed;top: 0; left: 0; right: 0; bottom: 0;background: rgba(0,0,0,0.4);backdrop-filter: blur(4px);display: none;align-items: center;justify-content: center;z-index: 2000;}
+        .modal {background: #fff;padding: 2rem;border-radius: 16px;max-width: 400px;width: 90%;text-align: center;box-shadow: 0 12px 30px rgba(0,0,0,0.2);animation: fadeIn 0.3s ease;position: relative;}
+        .modal h3 {margin: 0 0 1rem 0;font-size: 1.5rem;color: #1a2a44;}
+        .modal p {font-size: 1rem;color: #555;margin-bottom: 1.5rem;}
+        .modal button {padding: 0.7rem 1.5rem;border: none;border-radius: 8px;background: #1a2a44;color: #fff;font-size: 1rem;cursor: pointer;transition: 0.3s;}
+        .modal button:hover {background: #3a4f78;}
+        .modal .close {position: absolute;top: 12px;right: 16px;font-size: 1.5rem;color: #666;cursor: pointer;transition: 0.2s;}
+        .modal .close:hover {color: #000;}
+        
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+            to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         @media (max-width: 1030px) {
@@ -378,10 +354,18 @@
     <p>© 2025 Супер Бур – бурение скважин в Минске и Минской области. Все права защищены.</p>
 </footer>
 
-<!-- Всплывающее уведомление -->
 <div id="toast">
-    <span class="close" onclick="closeToast()">×</span>
-    <span class="message"></span>
+    <span id="toastMessage">Сообщение</span>
+    <span class="close" onclick="hideToast()">&times;</span>
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h3>Спасибо!</h3>
+        <p>Ваша заявка отправлена.<br>Мы скоро с вами свяжемся.</p>
+        <button onclick="closeModal()">Хорошо</button>
+    </div>
 </div>
 
 <script>
@@ -427,13 +411,27 @@
     const toast = document.getElementById("toast");
     const toastMessage = toast.querySelector(".message");
 
-    function showToast(msg, isError=false){
-        toastMessage.innerText = msg;
-        toast.className = isError ? "error" : "";
+    function showToast(message, isError = false) {
+        const toast = document.getElementById("toast");
+        const toastMessage = document.getElementById("toastMessage");
+
+        toastMessage.textContent = message;
+
+        if (isError) {
+            toast.classList.add("error");
+        } else {
+            toast.classList.remove("error");
+        }
+
         toast.style.display = "block";
+
+        setTimeout(() => {
+            hideToast();
+        }, 3000);
     }
 
-    function closeToast(){
+    function hideToast() {
+        const toast = document.getElementById("toast");
         toast.style.display = "none";
     }
 
@@ -458,7 +456,8 @@
             })
             .then(res => {
                 if(res.ok){
-                    showToast("Заявка отправлена!");
+                    e.preventDefault();
+                    openModal();
                     phoneInput.value = ""; // Очищаем поле
                 } else {
                     showToast("❌ Ошибка при отправке.", true);
@@ -492,7 +491,8 @@
         })
             .then(res=>{
                 if(res.ok){
-                    showToast("Заявка отправлена!");
+                    e.preventDefault();
+                    openModal();
                     this.reset();
                 } else {
                     showToast("❌ Ошибка при отправке.", true);
@@ -559,6 +559,14 @@
     });
 
     window.addEventListener('resize', updateSlideWidths);
+
+    function openModal() {
+        document.getElementById("modalOverlay").style.display = "flex";
+    }
+
+    function closeModal() {
+        document.getElementById("modalOverlay").style.display = "none";
+    }
 
     // при загрузке страницы
     updateSlideWidths();
