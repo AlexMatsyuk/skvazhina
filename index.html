@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Бурение скважин на воду в Минске и Минской области | Супер Бур</title>
-    <link rel="icon" href="favicon.svg" type="image/x-icon">
+    <title>БурМастер | Бурение скважин на воду в Минске и Минской области</title>
+    <link rel="icon" href="images/logo10.png" type="image/x-icon">
     <meta name="description" content="Бурение скважин на воду в Минске и Минской области. Глубина до 200 м. Работаем за 1 день, гарантия на воду, рассрочка до 60 мес. Цена от 70 руб/м.">
     <meta name="keywords" 
           content="бурение скважин Минск, бурение скважин Беларусь, бурение скважин Минская область, скважина на воду, бурение под воду Минская область, бурение скважин цена, бурение скважин в Минске и области, скважины до 200 м, обустройство скважин, бурение воды, бурение скважин на воду Минск, бурение скважин на воду Минской области, цена бурения скважин на воду, бурение скважин под ключ Минск, обустройство скважины, 
@@ -105,7 +105,7 @@
             }
         }
 
-        @media (max-width: 800px) {
+        @media (max-width: 870px) {
             .header-form {
                 display: none;
             }
@@ -115,7 +115,16 @@
         }
 
         @media (max-width: 600px) {
-            .logo {
+            #logo-large {
+                display: none;
+            }
+            #logo-small {
+                display: flex;
+            }
+        }
+
+        @media (min-width: 600px) {
+            #logo-small {
                 display: none;
             }
         }
@@ -124,15 +133,19 @@
             .header-contacts {
                 gap: 0.5rem;
             }
-            .header-phones {
-                gap: 0.7rem;
-                font-size: 12px;
-            }
+
             .header-icons {
                 gap: 0.5rem;
                 min-width: 100px;
             }
         }
+
+        @media (max-width: 399px) {
+            #logo-small {
+                display: none;
+            }
+        }
+        
     </style>
 </head>
 <body>
@@ -140,8 +153,11 @@
 <header>
     <div class="header-container">
         <!-- Логотип -->
-        <div class="logo">
-            <img src="images/logo3.png" alt="Super Bur - бурение скважин на воду в Минске и Минской области">
+        <div class="logo" id="logo-large">
+            <img src="images/logo8.png" alt="БурМастер - бурение скважин на воду в Минске и Минской области" style="box-shadow:none;">
+        </div>
+        <div class="logo" id="logo-small">
+            <img src="images/logo11.png" alt="БурМастер - бурение скважин на воду в Минске и Минской области" style="box-shadow:none;">
         </div>
 
         <!-- Основной текст -->
@@ -152,15 +168,15 @@
         <!-- Контакты -->
         <div class="header-contacts">
             <div class="header-phones">
-                <a href="tel:+375298399627">📞+375 29 839-96-27</a>
-                <a href="tel:+375299446002">📞+375 29 944-60-02</a>
+                <a href="tel:+375298399627" id="phone1">📞+375 29 839-96-27</a>
+                <a href="tel:+375299446002" id="phone2">📞+375 29 944-60-02</a>
             </div>
             <div class="header-icons">
                 <a href="https://t.me/matsiuk_alexander" class="telegram">
-                    <img src="images/telegram2.svg" alt="Telegram Super Bur">
+                    <img src="images/telegram2.svg" alt="Telegram БурМастер">
                 </a>
                 <a href="viber://chat?number=+375298399627" class="viber">
-                    <img src="images/viber2.svg" alt="Viber Super Bur">
+                    <img src="images/viber2.svg" alt="Viber БурМастер">
                 </a>
                 <a href="https://www.instagram.com/bur_pchelca?igsh=MXBqcXcya21mbXg0Zw%3D%3D" class="instagram" target="_blank">
                     <img src="images/instagram2.svg" alt="Instagram бурение скважин">
@@ -185,7 +201,7 @@
     </div>
 </header>
 
-<h1>Бурение скважин на воду в Минске и Минской области</h1>
+<h1>БурМастер <br> Бурение скважин на воду в Минске и Минской области</h1>
 
 <section class="services">
     <img src="images/header7.jpg" alt="Буровая установка для скважины на воду в Минске">
@@ -352,7 +368,7 @@
 </section>
 
 <footer>
-    <p>© 2025 Супер Бур – бурение скважин в Минске и Минской области. Все права защищены.</p>
+    <p>© 2025 БурМастер – бурение скважин в Минске и Минской области. Все права защищены.</p>
 </footer>
 
 <div id="toastOverlay"></div>
@@ -578,6 +594,19 @@
     function closeModal() {
         document.getElementById("modalOverlay").style.display = "none";
     }
+
+    function updatePhones() {
+        if (window.innerWidth <= 500) {
+            document.getElementById("phone1").textContent = "📞29 839-96-27";
+            document.getElementById("phone2").textContent = "📞29 944-60-02";
+        } else {
+            document.getElementById("phone1").textContent = "📞+375 29 839-96-27";
+            document.getElementById("phone2").textContent = "📞+375 29 944-60-02";
+        }
+    }
+
+    window.addEventListener("load", updatePhones);
+    window.addEventListener("resize", updatePhones);
 
     // при загрузке страницы
     updateSlideWidths();
