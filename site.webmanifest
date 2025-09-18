@@ -1,6 +1,7 @@
 {
   "name": "БурМастер - Бурение скважин на воду",
   "short_name": "БурМастер",
+  "start_url": "/",
   "icons": [
     {
       "src": "/images/favicon/web-app-manifest-192x192.png",
