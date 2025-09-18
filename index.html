@@ -88,6 +88,8 @@
         .modal button:hover {background: #3a4f78;}
         .modal .close {position: absolute;top: 12px;right: 16px;font-size: 1.5rem;color: #666;cursor: pointer;transition: 0.2s;}
         .modal .close:hover {color: #000;}
+
+        .form-note {font-size: 0.9rem;color: #777;margin-top: -0.5rem;line-height: 1.2; text-align: left;}
         
         @keyframes fadeInScale {
             from { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
@@ -192,11 +194,11 @@
                    oninput="this.setCustomValidity('')"
                    style="color:grey"
                    required>
-            <button type="submit">Заказать звонок</button>
+            <button type="submit">Заказать звонок ⃰</button>
         </div>
 
         <div class="header-form-scroll" id="scrollContactForm">
-            <button onclick="document.getElementById('scroll-section').scrollIntoView({behavior: 'smooth'});" style="white-space: normal; width: 100px;display: flex; justify-content: center; align-items: center; text-align: center;">Заказать звонок</button>
+            <button onclick="document.getElementById('scroll-section').scrollIntoView({behavior: 'smooth'});" style="white-space: normal; width: 100px;display: flex; justify-content: center; align-items: center; text-align: center;">Заказать звонок ⃰</button>
         </div>
     </div>
 </header>
@@ -372,12 +374,20 @@
         <input type="tel" name="phone2" style="color:grey" placeholder="+375 (__) ___-__-__" oninvalid="this.setCustomValidity('Пожалуйста, укажите ваш номер телефона')" 
                oninput="this.setCustomValidity('')" required>
         <textarea name="message" rows="4" placeholder="Ваш вопрос, комментарий (необязательно)"></textarea>
+        <div class="form-note">
+            Отправляя форму, вы подтверждаете согласие на обработку ваших персональных данных в соответствии с 
+            <a href="./privacy-policy.html" target="_blank">Политикой конфиденциальности<br></a>.
+        </div>
         <button type="submit">Отправить заявку</button>
     </form>
 </section>
 
 <footer>
     <p>© 2025 БурМастер – бурение скважин в Минске и Минской области. Все права защищены.</p>
+    <p>
+        ⃰ Отправляя форму, вы подтверждаете согласие на обработку ваших персональных данных
+        в соответствии с <a href="./privacy-policy.html" target="_blank">Политикой конфиденциальности</a>.
+    </p>
 </footer>
 
 <div id="toastOverlay"></div>
