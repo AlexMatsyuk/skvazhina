@@ -99,6 +99,11 @@
         .modal .close {position: absolute;top: 12px;right: 16px;font-size: 1.5rem;color: #666;cursor: pointer;transition: 0.2s;}
         .modal .close:hover {color: #000;}
 
+        .youtube-placeholder {position: relative;width: 100%;padding-top: 56.25%; /* 16:9 */cursor: pointer;background: #000;overflow: hidden;}
+        .youtube-placeholder img {position: absolute;top: 0; left: 0;width: 100%;height: 100%;object-fit: cover;}
+        .youtube-play-button {position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);width: 68px;height: 48px;background: rgba(0, 0, 0, 0.6);border-radius: 14%; /* форма почти как у YouTube */}
+        .youtube-play-button::before {content: "";position: absolute;top: 50%;left: 50%;transform: translate(-40%, -50%);width: 0;height: 0;border-left: 18px solid #fff;border-top: 12px solid transparent;border-bottom: 12px solid transparent;}
+
         .form-note {font-size: 0.9rem;color: #777;margin-top: -0.5rem;line-height: 1.2; text-align: left;}
         
         @keyframes fadeInScale {
@@ -335,23 +340,17 @@
                 <img src="images/07.webp" alt="глубина бурения скважины до 200 метров">
                 <img src="images/08.webp" alt="бурение скважин дача">
                 <img src="images/09.webp" alt="бурение абиссинской скважины">
-                <div class="youtube-placeholder" data-video-id="OgkJ4hNgDRM" style="position: relative; width: 100%; padding-top: 56.25%;">
-                    <img src="https://img.youtube.com/vi/OgkJ4hNgDRM/hqdefault.jpg"
-                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"
-                         alt="Видео">
-                    <button style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;">▶ Play</button>
+                <div class="youtube-placeholder" data-video-id="OgkJ4hNgDRM">
+                    <img src="https://img.youtube.com/vi/OgkJ4hNgDRM/hqdefault.jpg" alt="бурение скважин в Беларуси>">
+                    <div class="youtube-play-button"></div>
                 </div>
-                <div class="youtube-placeholder" data-video-id="4uhsYIE7CXo" style="position: relative; width: 100%; padding-top: 56.25%;">
-                    <img src="https://img.youtube.com/vi/4uhsYIE7CXo/hqdefault.jpg"
-                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"
-                         alt="Видео">
-                    <button style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;">▶ Play</button>
+                <div class="youtube-placeholder" data-video-id="4uhsYIE7CXo">
+                    <img src="https://img.youtube.com/vi/4uhsYIE7CXo/hqdefault.jpg" alt="бурение скважин в Минской области>">
+                    <div class="youtube-play-button"></div>
                 </div>
-                <div class="youtube-placeholder" data-video-id="wD-Kqx3oqzA" style="position: relative; width: 100%; padding-top: 56.25%;">
-                    <img src="https://img.youtube.com/vi/wD-Kqx3oqzA/hqdefault.jpg"
-                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"
-                         alt="Видео">
-                    <button style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;">▶ Play</button>
+                <div class="youtube-placeholder" data-video-id="wD-Kqx3oqzA">
+                    <img src="https://img.youtube.com/vi/wD-Kqx3oqzA/hqdefault.jpg" alt="бурение скважин под ключ>">
+                    <div class="youtube-play-button"></div>
                 </div>
             </div>
         </div>
