@@ -634,16 +634,15 @@
     });
 
     function updateSlideWidths() {
-        const carouselWidth = track.parentElement.getBoundingClientRect().width;
+        const carouselWidth = track.parentElement.offsetWidth;
 
-    requestAnimationFrame(() => {
-        slides.forEach(slide => {
-            slide.style.minWidth = `${carouselWidth}px`;
+        requestAnimationFrame(() => {
+            slides.forEach(slide => {
+                slide.style.minWidth = carouselWidth + "px";
+            });
+            track.style.transform = `translateX(-${index * carouselWidth}px)`;
         });
-
-        track.style.transform = `translateX(-${index * carouselWidth}px)`;
-    });
-}
+    }
 
     function updateCarousel() {
         const carouselWidth = track.parentElement.getBoundingClientRect().width;
