@@ -633,17 +633,6 @@
         });
     });
 
-    function updateSlideWidths() {
-        const carouselWidth = track.parentElement.offsetWidth;
-
-        requestAnimationFrame(() => {
-            slides.forEach(slide => {
-                slide.style.minWidth = carouselWidth + "px";
-            });
-            track.style.transform = `translateX(-${index * carouselWidth}px)`;
-        });
-    }
-
     function updateCarousel() {
         const carouselWidth = track.parentElement.getBoundingClientRect().width;
         track.style.transform = `translateX(-${index * carouselWidth}px)`;
@@ -661,7 +650,22 @@
         updateCarousel();
     });
 
-    window.addEventListener('resize', updateSlideWidths);
+    const resizeObserver = new ResizeObserver(entries => {
+        for (let entry of entries) {
+            const width = entry.contentRect.width;
+
+            // откладываем изменения стилей в следующий кадр
+            requestAnimationFrame(() => {
+                slides.forEach(slide => {
+                    slide.style.minWidth = width + "px";
+                });
+                track.style.transform = `translateX(-${index * width}px)`;
+            });
+        }
+    });
+
+    // наблюдаем за контейнером, в котором лежат слайды
+    resizeObserver.observe(track.parentElement);
 
     function openModal() {
         document.getElementById("modalOverlay").style.display = "flex";
