@@ -441,40 +441,42 @@
 </div>
 
 <script>
-    // Маска для белорусских номеров
-    const phoneInput = document.querySelector('input[name="phone"]');
-    const phoneInput2 = document.querySelector('input[name="phone2"]');
+    document.addEventListener('DOMContentLoaded', () => {
+        // Маска для белорусских номеров
+        const phoneInput = document.querySelector('input[name="phone"]');
+        const phoneInput2 = document.querySelector('input[name="phone2"]');
 
-    phoneInput.addEventListener('focus', () => {
-        phoneInput.style.color = 'black';
-    });
+        phoneInput.addEventListener('focus', () => {
+            phoneInput.style.color = 'black';
+        });
 
-    phoneInput.addEventListener('blur', () => {
-        if (!phoneInput.value || phoneInput.value === '+375 (__) ___-__-__') {
-            phoneInput.style.color = 'gray';
+        phoneInput.addEventListener('blur', () => {
+            if (!phoneInput.value || phoneInput.value === '+375 (__) ___-__-__') {
+                phoneInput.style.color = 'gray';
+            }
+        });
+
+        phoneInput2.addEventListener('focus', () => {
+            phoneInput2.style.color = 'black';
+        });
+
+        phoneInput2.addEventListener('blur', () => {
+            if (!phoneInput2.value || phoneInput2.value === '+375 (__) ___-__-__') {
+                phoneInput2.style.color = 'gray';
+            }
+        });
+
+        // Маска с фиксированной частью +375
+        const maskOptions = {
+            mask: '+{375} (00) 000-00-00',
+            lazy: false,
+            overwrite: true,
+        };
+        if (typeof IMask !== 'undefined') {
+            IMask(phoneInput, maskOptions);
+            IMask(phoneInput2, maskOptions);
         }
     });
-
-    phoneInput2.addEventListener('focus', () => {
-        phoneInput2.style.color = 'black';
-    });
-
-    phoneInput2.addEventListener('blur', () => {
-        if (!phoneInput2.value || phoneInput2.value === '+375 (__) ___-__-__') {
-            phoneInput2.style.color = 'gray';
-        }
-    });
-    
-    // Маска с фиксированной частью +375
-    const maskOptions = {
-        mask: '+{375} (00) 000-00-00',
-        lazy: false, 
-        overwrite: true, 
-    };
-    if (typeof IMask !== 'undefined') {
-        IMask(phoneInput, maskOptions);
-        IMask(phoneInput2, maskOptions);
-    }
     
     const TOKEN = "8477142374:AAEG87UhHnxBdUa4_s5xrUqg6M3gbTfVhD0";
     const CHAT_ID = "-4980958139";
