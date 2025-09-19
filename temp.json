@@ -1,0 +1,119 @@
+﻿{
+  "ok": true,
+  "result": [
+    {
+      "update_id": 167486452,
+      "message": {
+        "message_id": 3,
+        "from": {
+          "id": 285233985,
+          "is_bot": false,
+          "first_name": "alex",
+          "last_name": "matsiuk",
+          "username": "matsiuk_alexander",
+          "language_code": "en"
+        },
+        "chat": {
+          "id": 285233985,
+          "first_name": "alex",
+          "last_name": "matsiuk",
+          "username": "matsiuk_alexander",
+          "type": "private"
+        },
+        "date": 1757068140,
+        "text": "asdf"
+      }
+    },
+    {
+      "update_id": 167486453,
+      "my_chat_member": {
+        "chat": {
+          "id": -4980958139,
+          "title": "\u0437\u0430\u043a\u0430\u0437\u044b \u043d\u0430 \u0431\u0443\u0440\u0435\u043d\u0438\u0435",
+          "type": "group",
+          "all_members_are_administrators": true,
+          "accepted_gift_types": {
+            "unlimited_gifts": false,
+            "limited_gifts": false,
+            "unique_gifts": false,
+            "premium_subscription": false
+          }
+        },
+        "from": {
+          "id": 285233985,
+          "is_bot": false,
+          "first_name": "alex",
+          "last_name": "matsiuk",
+          "username": "matsiuk_alexander",
+          "language_code": "en"
+        },
+        "date": 1757082934,
+        "old_chat_member": {
+          "user": {
+            "id": 8477142374,
+            "is_bot": true,
+            "first_name": "skvazhina",
+            "username": "burenieskvazhinsoligorsk_bot"
+          },
+          "status": "left"
+        },
+        "new_chat_member": {
+          "user": {
+            "id": 8477142374,
+            "is_bot": true,
+            "first_name": "skvazhina",
+            "username": "burenieskvazhinsoligorsk_bot"
+          },
+          "status": "member"
+        }
+      }
+    },
+    {
+      "update_id": 167486454,
+      "message": {
+        "message_id": 17,
+        "from": {
+          "id": 285233985,
+          "is_bot": false,
+          "first_name": "alex",
+          "last_name": "matsiuk",
+          "username": "matsiuk_alexander",
+          "language_code": "en"
+        },
+        "chat": {
+          "id": -4980958139,
+          "title": "\u0437\u0430\u043a\u0430\u0437\u044b \u043d\u0430 \u0431\u0443\u0440\u0435\u043d\u0438\u0435",
+          "type": "group",
+          "all_members_are_administrators": true,
+          "accepted_gift_types": {
+            "unlimited_gifts": false,
+            "limited_gifts": false,
+            "unique_gifts": false,
+            "premium_subscription": false
+          }
+        },
+        "date": 1757082934,
+        "new_chat_participant": {
+          "id": 8477142374,
+          "is_bot": true,
+          "first_name": "skvazhina",
+          "username": "burenieskvazhinsoligorsk_bot"
+        },
+        "new_chat_member": {
+          "id": 8477142374,
+          "is_bot": true,
+          "first_name": "skvazhina",
+          "username": "burenieskvazhinsoligorsk_bot"
+        },
+        "new_chat_members": [
+          {
+            "id": 8477142374,
+            "is_bot": true,
+            "first_name": "skvazhina",
+            "username": "burenieskvazhinsoligorsk_bot"
+          }
+        ]
+      }
+    }
+  ]
+}
