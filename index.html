@@ -335,9 +335,24 @@
                 <img src="images/07.webp" alt="глубина бурения скважины до 200 метров">
                 <img src="images/08.webp" alt="бурение скважин дача">
                 <img src="images/09.webp" alt="бурение абиссинской скважины">
-                <iframe src="https://www.youtube.com/embed/OgkJ4hNgDRM?enablejsapi=1" title="Видео бурения скважины" frameborder="0" allowfullscreen></iframe>
-                <iframe src="https://www.youtube.com/embed/4uhsYIE7CXo?enablejsapi=1" title="Пример бурения воды" frameborder="0" allowfullscreen></iframe>
-                <iframe src="https://www.youtube.com/embed/wD-Kqx3oqzA?enablejsapi=1" title="Обустройство скважины" frameborder="0" allowfullscreen></iframe>
+                <div class="youtube-placeholder" data-video-id="OgkJ4hNgDRM" style="position: relative; width: 100%; padding-top: 56.25%;">
+                    <img src="https://img.youtube.com/vi/OgkJ4hNgDRM/hqdefault.jpg"
+                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"
+                         alt="Видео">
+                    <button style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;">▶ Play</button>
+                </div>
+                <div class="youtube-placeholder" data-video-id="4uhsYIE7CXo" style="position: relative; width: 100%; padding-top: 56.25%;">
+                    <img src="https://img.youtube.com/vi/4uhsYIE7CXo/hqdefault.jpg"
+                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"
+                         alt="Видео">
+                    <button style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;">▶ Play</button>
+                </div>
+                <div class="youtube-placeholder" data-video-id="wD-Kqx3oqzA" style="position: relative; width: 100%; padding-top: 56.25%;">
+                    <img src="https://img.youtube.com/vi/wD-Kqx3oqzA/hqdefault.jpg"
+                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"
+                         alt="Видео">
+                    <button style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;">▶ Play</button>
+                </div>
             </div>
         </div>
         <button class="prev">&#10094;</button>
@@ -569,10 +584,7 @@
 
     // YouTube API вызывает эту функцию после загрузки
     function onYouTubeIframeAPIReady() {
-        const iframes = track.querySelectorAll('iframe');
-        iframes.forEach((iframe, i) => {
-            ytPlayers[i] = new YT.Player(iframe);
-        });
+        // не делаем ничего заранее, iframe будут создаваться динамически
     }
 
     // ставим все видео на паузу
@@ -583,6 +595,44 @@
             }
         });
     }
+
+    // функция для создания iframe и плеера
+    function createYouTubePlayer(container, videoId) {
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1`;
+        iframe.frameBorder = "0";
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+        iframe.allowFullscreen = true;
+        iframe.style.position = "absolute";
+        iframe.style.top = "0";
+        iframe.style.left = "0";
+        iframe.style.width = "100%";
+        iframe.style.height = "100%";
+
+        container.innerHTML = '';
+        container.appendChild(iframe);
+
+        // создаём YT.Player и добавляем в массив
+        const player = new YT.Player(iframe);
+        ytPlayers.push(player);
+    }
+
+    // ставим все видео на паузу
+    function pauseAllVideos() {
+        ytPlayers.forEach(p => {
+            if (p && p.pauseVideo) {
+                p.pauseVideo();
+            }
+        });
+    }
+
+    // пример использования для placeholder
+    document.querySelectorAll('.youtube-placeholder').forEach(p => {
+        const videoId = p.dataset.videoId;
+        p.addEventListener('click', () => {
+            createYouTubePlayer(p, videoId);
+        });
+    });
 
     function updateSlideWidths() {
         const carouselWidth = track.parentElement.getBoundingClientRect().width;
