@@ -587,14 +587,14 @@
     function updateSlideWidths() {
         const carouselWidth = track.parentElement.getBoundingClientRect().width;
 
-        // фиксируем ширину для каждого слайда
+    requestAnimationFrame(() => {
         slides.forEach(slide => {
             slide.style.minWidth = `${carouselWidth}px`;
         });
 
-        // обновляем позицию
         track.style.transform = `translateX(-${index * carouselWidth}px)`;
-    }
+    });
+}
 
     function updateCarousel() {
         const carouselWidth = track.parentElement.getBoundingClientRect().width;
