@@ -223,13 +223,16 @@
 <h1>БурМастер - Бурение скважин на воду в Минске и Минской области</h1>
 
 <section class="services">
-    <img src="images/header-412.webp"
-            srcset="images/header-412.webp 412w, images/header-800.webp 800w, images/header-1080.webp 1080w"
-            sizes="(max-width: 800) 412px, (max-width: 1200) 800px, 1080px"
-            alt="Буровая установка для скважины на воду в Минске"
-            width="1080" height="720"
-            style="max-width:100%; height:auto;"
-            fetchpriority="high">
+    <picture>
+        <source srcset="images/header-412.webp" media="(max-width: 800px)" type="image/webp">
+        <source srcset="images/header-800.webp" media="(max-width: 1200px)" type="image/webp">
+        <source srcset="images/header-1080.webp" media="(min-width: 1201px)" type="image/webp">
+        <img src="images/header-412.webp"
+             alt="Буровая установка для скважины на воду в Минске"
+             width="1080" height="720"
+             style="max-width:100%; height:auto;"
+             fetchpriority="high">
+    </picture>
 </section>
 
 <section class="services">
