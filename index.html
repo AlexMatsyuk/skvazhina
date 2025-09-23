@@ -106,6 +106,20 @@
         .youtube-play-button::before {content: "";position: absolute;top: 50%;left: 50%;transform: translate(-40%, -50%);width: 0;height: 0;border-left: 18px solid #fff;border-top: 12px solid transparent;border-bottom: 12px solid transparent;}
 
         .form-note {font-size: 0.9rem;color: #777;margin-top: -0.5rem;line-height: 1.2; text-align: left;}
+
+        .burger-menu {display: flex;align-items: center;margin-right: 1rem;min-width:32px;}
+        .header-container {display: flex;align-items: center;justify-content: space-between;}
+        .menu-overlay {position: fixed;top: 0; left: 0; right: 0; bottom: 0;background: rgba(0,0,0,0.4);backdrop-filter: blur(6px);display: none;justify-content: flex-start; /* теперь меню будет выезжать слева */z-index: 2500;}
+        .menu {background: #fff;width: 250px;height: 100%;display: flex;flex-direction: column;padding: 2rem 1rem;box-shadow: 4px 0 12px rgba(0,0,0,0.2);animation: slideIn 0.3s ease forwards;}
+        .menu a {margin: 0.5rem 0;padding: 0.8rem 0;font-size: 1.1rem;text-decoration: none;color: #1a2a44;font-weight: 600;transition: color 0.2s;}
+        .menu a:hover {color: #0066cc;}
+        .close-btn {position: absolute;top: 15px;right: 35px;font-size: 24px;background: none;border: none;color: black;cursor: pointer;text-align:right;width:50px}
+        .close-btn:hover {background-color:transparent;}
+
+        @keyframes slideIn {
+            from { transform: translateX(-100%); }
+            to   { transform: translateX(0); }
+        }
         
         @keyframes fadeInScale {
             from { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
@@ -117,7 +131,7 @@
             to { opacity: 1; transform: scale(1); }
         }
 
-        @media (max-width: 1060px) {
+        @media (max-width: 1080px) {
             .header-text {
                 display: none;
             }
@@ -149,7 +163,7 @@
             }
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 640px) {
             #logo-large {
                 display: none;
             }
@@ -161,7 +175,7 @@
             }
         }
 
-        @media (min-width: 600px) {
+        @media (min-width: 640px) {
             #logo-small {
                 display: none;
             }
@@ -170,12 +184,18 @@
             }
         }
 
-        @media (max-width: 530px) {
+        @media (max-width: 570px) {
             .callback {
                 width: 70px;
             }
             .header-form-scroll {
                 width: 70px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .header-schedule {
+                display: none;
             }
         }
         
@@ -187,12 +207,9 @@
                 gap: 0.4rem;
                 min-width: 120px;
             }
-            .header-schedule {
-                display: none;
-            }
         }
 
-        @media (max-width: 420px) {
+        @media (max-width: 445px) {
             .header-form-wrapper {
                 display: none !important;
             }
@@ -201,7 +218,7 @@
             }
         }
         
-        @media (max-width: 399px) {
+        @media (max-width: 400px) {
             #logo-small {
                 display: none;
             }
@@ -213,20 +230,39 @@
             }
         }
 
+        @media (max-width: 360px) {
+            .burger-menu {
+                margin-right: 0.3rem;
+            }
+            .header-contacts {
+                gap: 0.5rem;
+            }
+            .header-icons {
+                gap: 0.5rem;
+            }
+        }
+
     </style>
 </head>
 <body>
 
 <header>
     <div class="header-container">
+        <div class="burger-menu">
+            <img src="images/burger.svg" alt="Меню" id="burgerIcon" width="32" height="32" style="cursor:pointer;">
+        </div>
         <!-- Логотип -->
         <div class="logo" id="logo-large">
+            <a href="./index.html">
             <img src="images/logo3-90.webp" alt="БурМастер - бурение скважин на воду в Минске и Минской области" style="box-shadow:none;"
                  width="90" height="45">
+            </a>
         </div>
         <div class="logo" id="logo-small">
+            <a href="./index.html">
             <img src="images/logo6-60.webp" alt="БурМастер - бурение скважин на воду в Минске и Минской области" style="box-shadow:none;"
                  width="60" height="100">
+            </a>
         </div>
 
         <!-- Основной текст -->
@@ -282,6 +318,17 @@
         </div>
     </div>
 </header>
+
+<div id="menuOverlay" class="menu-overlay">
+    <nav class="menu">
+        <button class="close-btn" id="close-menu">✖</button>
+        <a href="./index">Главная</a>
+        <a href="./services">Услуги</a>
+        <a href="./prices">Цены</a>
+        <a href="./about">О компании</a>
+        <a href="./contacts">Контакты</a>
+    </nav>
+</div>
 
 <h1>БурМастер - Бурение скважин на воду в Минске и Минской области</h1>
 
@@ -485,6 +532,27 @@
     </form>
 </section>
 
+<section class="seo-text" style="max-width:1080px; margin:2rem auto; font-size:1rem; line-height:1.6; color:#444;">
+    <h2>Бурение скважин на воду в Минске и Минской области</h2>
+    <p>Компания <strong>БурМастер</strong> выполняет профессиональное бурение скважин на воду глубиной до 200 метров.
+        Мы работаем по Минску и всей Минской области, предоставляем гарантию на выполненные работы и обеспечиваем быстрый результат —
+        скважина за 1 день.</p>
+
+    <p>Цена бурения скважины начинается от <strong>75 рублей за метр</strong>. Мы предлагаем рассрочку до 60 месяцев,
+        а также выполняем обустройство скважин под ключ — от монтажа насоса до подключения водоснабжения в дом.</p>
+
+    <h3>Почему выбирают нас:</h3>
+    <ul>
+        <li>Современное оборудование и опытная команда;</li>
+        <li>Работаем по договору с гарантией;</li>
+        <li>Доступные цены и прозрачные условия;</li>
+        <li>Скважины для домов, коттеджей, садовых участков и предприятий.</li>
+    </ul>
+
+    <p>Нужна вода на участке? Звоните прямо сейчас — <a href="tel:+375299446002">+375 29 944 60 02</a> или оставьте заявку на сайте.</p>
+</section>
+
+
 <section>
     <p>&nbsp;&nbsp;⃰ Отправляя форму, вы подтверждаете согласие на обработку ваших персональных данных
         в соответствии с <a href="./privacy-policy.html" target="_blank">Политикой конфиденциальности</a>.
@@ -510,6 +578,26 @@
 </div>
 
 <script>
+    const burgerIcon = document.getElementById("burgerIcon");
+    const menuOverlay = document.getElementById("menuOverlay");
+    const closeMenu = document.getElementById("close-menu");
+
+    burgerIcon.addEventListener("click", () => {
+        menuOverlay.style.display = "flex";
+    });
+
+    menuOverlay.addEventListener("click", (e) => {
+        if (e.target === menuOverlay || e.target.tagName === "A") {
+            menuOverlay.style.display = "none";
+        }
+    });
+
+    closeMenu.addEventListener("click", (e) => {
+        if (e.target === closeMenu || e.target.tagName === "A") {
+            menuOverlay.style.display = "none";
+        }
+    });
+    
     document.addEventListener('DOMContentLoaded', () => {
         // Маска для белорусских номеров
         const phoneInput = document.querySelector('input[name="phone"]');
@@ -760,16 +848,20 @@
     }
 
     function updateHeaderSizes() {
-        if (window.innerWidth <= 500) {
+        if (window.innerWidth <= 540) {
             document.getElementById("short-schedule").textContent = "8:00-20:00";
         }
-        else if (window.innerWidth <= 630) {
+        else if (window.innerWidth <= 675) {
             document.getElementById("short-schedule").textContent = "с 8:00 до 20:00";
         }
         else {
             document.getElementById("short-schedule").textContent = "Работаем с 8:00 до 20:00";
         }
-        if (window.innerWidth <= 880) {
+        if (window.innerWidth <= 360) {
+            document.getElementById("phone1").textContent = "📞298399627";
+            document.getElementById("phone2").textContent = "📞299446002";
+        }
+        else if (window.innerWidth <= 880) {
             document.getElementById("phone1").textContent = "📞29 839-96-27";
             document.getElementById("phone2").textContent = "📞29 944-60-02";
         } else {

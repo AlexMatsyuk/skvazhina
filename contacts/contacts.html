@@ -1,0 +1,531 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цены | БурМастер - Бурение скважин на воду</title>
+    <link rel="icon" type="image/png" href="../images/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../images/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="../images/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="../site.webmanifest" />
+    <meta name="theme-color" content="#ffffff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-title" content="Бурмастер">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="Цены на бурение скважин на воду в Минске и Минской области. Глубина до 200 м. Цена от 75 руб/м. Работаем за 1 день. Гарантия. Рассрочка.">
+    <meta property="og:title" content="Цены | Бурмастер — бурение скважин на воду">
+    <meta property="og:description" content="Цены на бурение скважин на воду в Минске и области.">
+    <meta property="og:image" content="https://бурмастер.бел/images/logo8.webp">
+    <meta property="og:url" content="https://бурмастер.бел/prices">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://бурмастер.бел/contacts">
+    <script src="https://unpkg.com/imask" defer></script>
+
+    <style>
+        body {font-family: 'Segoe UI', Tahoma, sans-serif;background: #7593a630;margin: 0;color: #333;padding-top: 90px; /* Чтобы контент не скрывался под фиксированным хедером */}
+        header {position: fixed;top: 0;left: 0;width: 100%;height: 80px; /* Фиксированная высота */z-index: 1000;background: linear-gradient(90deg, #18191a, #7694a8);color: #fff;display: flex;align-items: center; /* Вертикальное выравнивание */padding: 0 1rem;box-sizing: border-box;}
+        .header-container {display: flex;align-items: center;justify-content: space-between;max-width: 1080px;width: 100%;margin: 0 auto;gap: 0rem;height: 100%;}
+        .logo {display: flex;align-items: center;height: 100%;width:10%;min-width:100px}
+        .logo img {display: block;max-height: 50px;max-width: 90px;height: auto;width: auto;}
+        .header-text {display: flex;flex-direction: column;justify-content: center;text-align: center;width:30%}
+        .header-text p {margin: 0;line-height: 1.8;}
+        .header-contacts {display: flex;align-items: center;gap: 1.5rem;height: 100%;}
+        .header-phones {display: flex;flex-direction: column;justify-content: center;gap: 0.2rem;}
+        .header-phones a {color: #fff;text-decoration: none;font-weight: 600;white-space: nowrap;padding: 0.2rem}
+        .header-phones a:hover {text-decoration: underline;}
+        .header-schedule {font-size: 0.85rem;color: white;margin:0;text-align: center;}
+        .header-icons {display: flex;align-items: center;gap: 1rem;min-width:150px}
+        .header-icons a img {width: 32px;height: 32px;display: block;transition: transform 0.3s;}
+        .header-icons a:hover img {transform: scale(1.1);}
+        .header-form {display: flex;align-items: center;gap: 0.5rem;}
+        .header-form-scroll {display:none}
+        .header-form input {padding: 0.6rem 0.8rem;border-radius: 4px;border: none;font-size: 1rem;height: 40px;box-sizing: border-box;}
+        .header-form button, .header-form-scroll button {padding: 0.6rem 1rem;border: none;border-radius: 4px;background-color: #1a2a44;color: #fff;cursor: pointer;font-weight: 600;transition: 0.3s;height: 40px;white-space: nowrap;}
+        .header-form button:hover, .header-form-scroll button:hover  {background-color: #3a4f78;}
+
+        h1 { margin:1rem; font-size:2rem; text-align:center;}
+        header p { margin:0.5rem 0 0; font-size:1.1rem; }
+        section { max-width:1080px; margin:1rem auto; padding:1rem; }
+        .contacts { display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; margin-top:1rem; }
+        .contacts a {display: inline-flex;align-items: center;justify-content: center;gap: 0.5rem;padding: 0.8rem 1.5rem;border: 2px solid #1a2a44;background: #fff;color: #1a2a44;border-radius: 6px;font-weight: 600;text-decoration: none;transition: 0.3s;}
+        .contacts a img {width: 24px;height: 24px;display: inline-block;margin-top: 0;box-shadow: none;border-radius: 0;}
+        .contacts a:hover {background: #f0f4f8;transform: translateY(-2px);}
+
+        .checklist {list-style: none;font-size: 1.1rem;color: #333;text-align: left;display: inline-block;}
+        .checklist li {margin-bottom: 0.6rem;line-height: 1.5;}
+
+        form { background:#fff; padding:2rem; border-radius:10px; box-shadow:0 6px 15px rgba(0,0,0,0.1); }
+        input, textarea, button { font-family: arial; width:100%; padding:0.9rem; border-radius:6px; border:1px solid #ccc; font-size:1rem; box-sizing: border-box;}
+        form input, form textarea, form button { margin-bottom:1rem;}
+        input:focus, textarea:focus { outline:none; border-color:#0099ff; box-shadow:0 0 5px rgba(0,153,255,0.3); }
+        button { background:#0066cc; color:#fff; border:none; cursor:pointer; transition:0.3s; font-weight:600; }
+        button:hover { background:#005bb5; }
+        img { max-width:100%; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+        footer { text-align:center; padding:0.1rem; color: #fff; background: linear-gradient(90deg, #18191a, #7694a8); margin-top:2rem; font-size:0.9rem; position: sticky; bottom: 0;}
+
+        #toastOverlay {display: none;position: fixed;top: 0; left: 0; right: 0; bottom: 0;background: rgba(0,0,0,0.4);backdrop-filter: blur(4px);z-index: 2999;}
+        #toast {display: none;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);background: #28a745;color: #fff;padding: 1.5rem 2rem;border-radius: 16px;box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);z-index: 3000;min-width: 250px;max-width: 90vw;font-size: 1.4rem;box-sizing: border-box;text-align: center;animation: fadeInScale 0.3s ease forwards;position: fixed;}
+        #toast.error {background: #dc3545;}
+        #toast .close {position: absolute;top: 8px;right: 12px;cursor: pointer;font-weight: bold;font-size: 1.6rem;color: #fff;opacity: 0.8;transition: opacity 0.2s;}
+        #toast .close:hover {opacity: 1;}
+
+        .modal-overlay {position: fixed;top: 0; left: 0; right: 0; bottom: 0;background: rgba(0,0,0,0.4);backdrop-filter: blur(4px);display: none;align-items: center;justify-content: center;z-index: 2000;}
+        .modal {background: #fff;padding: 2rem;border-radius: 16px;max-width: 400px;width: 90%;text-align: center;box-shadow: 0 12px 30px rgba(0,0,0,0.2);animation: fadeIn 0.3s ease;position: relative;}
+        .modal h3 {margin: 0 0 1rem 0;font-size: 1.5rem;color: #1a2a44;}
+        .modal p {font-size: 1rem;color: #555;margin-bottom: 1.5rem;}
+        .modal button {padding: 0.7rem 1.5rem;border: none;border-radius: 8px;background: #1a2a44;color: #fff;font-size: 1rem;cursor: pointer;transition: 0.3s;}
+        .modal button:hover {background: #3a4f78;}
+        .modal .close {position: absolute;top: 12px;right: 16px;font-size: 1.5rem;color: #666;cursor: pointer;transition: 0.2s;}
+        .modal .close:hover {color: #000;}
+
+        .form-note {font-size: 0.9rem;color: #777;margin-top: -0.5rem;line-height: 1.2; text-align: left;}
+
+        .burger-menu {display: flex;align-items: center;margin-right: 1rem;min-width:32px;}
+        .header-container {display: flex;align-items: center;justify-content: space-between;}
+        .menu-overlay {position: fixed;top: 0; left: 0; right: 0; bottom: 0;background: rgba(0,0,0,0.4);backdrop-filter: blur(6px);display: none;justify-content: flex-start; /* теперь меню будет выезжать слева */z-index: 2500;}
+        .menu {background: #fff;width: 250px;height: 100%;display: flex;flex-direction: column;padding: 2rem 1rem;box-shadow: 4px 0 12px rgba(0,0,0,0.2);animation: slideIn 0.3s ease forwards;}
+        .menu a {margin: 0.5rem 0;padding: 0.8rem 0;font-size: 1.1rem;text-decoration: none;color: #1a2a44;font-weight: 600;transition: color 0.2s;}
+        .menu a:hover {color: #0066cc;}
+        .close-btn {position: absolute;top: 15px;right: 35px;font-size: 24px;background: none;border: none;color: black;cursor: pointer;text-align:right;width:50px}
+        .close-btn:hover {background-color:transparent;}
+
+        .container {max-width: 1100px;margin: 0 auto;padding: 2rem 1rem;background: #fff;box-shadow: 0 2px 8px rgba(0,0,0,0.05);border-radius: 12px;}
+        h2 {margin-top: 2rem;font-size: 1.4rem;color: #333333;text-align:center;}
+        p {margin: 0.8rem 0;}
+        ul {margin: 1rem 0;padding-left: 1.2rem;}
+        ul li {margin-bottom: 0.5rem;}
+        a {color: #0066cc;text-decoration: none;}
+        a:hover {text-decoration: underline;}
+        .cta {margin-top: 2rem;padding: 1.5rem;text-align: center;background: #eaf3ff;border-radius: 10px;}
+        .cta p {margin: 0.5rem 0;font-size: 1.1rem;}
+        .cta a.button {display: inline-block;margin-top: 1rem;background: #0066cc;color: #fff;padding: 0.8rem 1.5rem;border-radius: 8px;font-weight: bold;transition: background 0.3s;}
+        .cta a.button:hover {background: #004999;}
+
+        @keyframes slideIn {
+            from { transform: translateX(-100%); }
+            to   { transform: translateX(0); }
+        }
+
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+            to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @media (max-width: 1080px) {
+            .header-text {
+                display: none;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .header-contacts {
+                gap: 0.75rem
+            }
+
+            .header-icons {
+                gap: 0.75rem
+            }
+        }
+
+        @media (max-width: 850px) {
+            .header-form-wrapper-scroll {
+                display: flex !important; flex-direction: column; align-items: center;
+            }
+            .header-form-scroll {
+                white-space: normal; width: 180px;display: flex; justify-content: center; align-items: center; text-align: center;
+            }
+            .header-icons
+            {
+                min-width: 140px;
+            }
+            .header-form-wrapper {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            #logo-large {
+                display: none;
+            }
+            #logo-small {
+                display: flex;
+            }
+            .logo {
+                min-width: 30px;
+            }
+        }
+
+        @media (min-width: 640px) {
+            #logo-small {
+                display: none;
+            }
+            .header-schedule {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 570px) {
+            .callback {
+                width: 70px;
+            }
+            .header-form-scroll {
+                width: 70px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .header-schedule {
+                display: none;
+            }
+        }
+
+        @media (max-width: 470px) {
+            .header-contacts {
+                gap: 0.4rem;
+            }
+            .header-icons {
+                gap: 0.4rem;
+                min-width: 120px;
+            }
+        }
+
+        @media (max-width: 445px) {
+            .header-form-wrapper {
+                display: none !important;
+            }
+            .header-form-wrapper-scroll  {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 400px) {
+            #logo-small {
+                display: none;
+            }
+            .header-contacts {
+                gap: 1.5rem;
+            }
+            .header-icons {
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .burger-menu {
+                margin-right: 0.3rem;
+            }
+            .header-contacts {
+                gap: 0.5rem;
+            }
+            .header-icons {
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body../>
+
+<header>
+    <div class="header-container">
+        <div class="burger-menu">../
+            <img src="../images/burger.svg" alt="Меню" id="burgerIcon" width="32" height="32" style="cursor:pointer;">
+        </div>
+        <!-- Логотип -->
+        <div class="logo" id="logo-large">
+            <a href="../">
+                <img src="../images/logo3-90.webp" alt="БурМастер - бурение скважин на воду в Минске и Минской области" style="box-shadow:none;"
+                     width="90" height="45">
+            </a>
+        </div>
+        <div class="logo" id="logo-small">
+            <a href="../">
+                <img src="../images/logo6-60.webp" alt="БурМастер - бурение скважин на воду в Минске и Минской области" style="box-shadow:none;"
+                     width="60" height="100">
+            </a>
+        </div>
+
+        <!-- Основной текст -->
+        <div class="header-text">
+            <p>Бурение скважин на воду<br>в Минске и Минской области</p>
+        </div>
+
+        <!-- Контакты -->
+        <div class="header-contacts">
+            <div class="header-phones">
+                <a href="tel:+375298399627" id="phone1">📞+375 29 839-96-27</a>
+                <a href="tel:+375299446002" id="phone2">📞+375 29 944-60-02</a>
+            </div>
+            <div class="header-icons">
+                <a href="https://t.me/+375295547770" class="telegram" target="_blank">
+                    <img src="../images/telegram.svg" alt="Telegram БурМастер" width="32" height="32">
+                </a>
+                <a href="viber://chat?number=+375295547770" class="viber" target="_blank">
+                    <img src="../images/viber.svg" alt="Viber БурМастер" width="32" height="32">
+                </a>
+                <a href="https://www.instagram.com/bur_pchelca?igsh=MXBqcXcya21mbXg0Zw%3D%3D" class="instagram" target="_blank">
+                    <img src="../images/instagram.svg" alt="Instagram бурение скважин" width="32" height="32">
+                </a>
+            </div>
+        </div>
+
+        <!-- Обратная связь -->
+        <div class="header-form-wrapper" style="display: flex; flex-direction: column; align-items: flex-start;">
+            <div class="header-form" id="shortContactForm">
+                <input type="tel" name="phone"
+                       placeholder="+375 (__) ___-__-__"
+                       oninvalid="this.setCustomValidity('Пожалуйста, укажите ваш номер телефона')"
+                       oninput="this.setCustomValidity('')"
+                       style="color:grey"
+                       required>
+                <button type="submit">Заказать звонок&nbsp;&nbsp;⃰</button>
+            </div>
+            <div class="header-schedule">
+                <p style="margin:3px 0px 0px 0px">Работаем с 8:00 до 20:00</p>
+            </div>
+        </div>
+
+        <div class="header-form-wrapper-scroll" style="display:none;">
+            <div class="header-form-scroll" id="scrollContactForm">
+                <button class="callback" onclick="document.getElementById('scroll-section').scrollIntoView({behavior: 'smooth'});"
+                        style="white-space: normal; width: 180px;display: flex; justify-content: center; align-items: center; text-align: center;padding:1rem 0.5rem 1rem 0.5rem">Заказать
+                    звонок &nbsp;&nbsp;⃰
+                </button>
+            </div>
+            <div class="header-schedule">
+                <p style="margin:3px 0 0 0" id="short-schedule">Работаем с 8:00 до 20:00</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div id="menuOverlay" class="menu-overlay">
+    <nav class="menu">
+        <button class="close-btn" id="close-menu">✖</button>
+        <a href="../">Главная</a>
+        <a href="../services">Услуги</a>
+        <a href="../prices">Цены</a>
+        <a href="../about">О компании</a>
+        <a href="../contacts">Контакты</a>
+    </nav>
+</div>
+
+<section class="services">
+    <h2>Свяжитесь с нами</h2>
+    <div class="contacts">
+        <a href="https://t.me/+375295547770" class="telegram" target="_blank"><img src="../images/telegram.svg" alt="Telegram БурМастер" width="32" height="32">Telegram</a>
+        <a href="viber://chat?number=+375295547770" class="viber" target="_blank"><img src="../images/viber.svg" alt="Viber БурМастер" width="32" height="32">Viber</a>
+        <a href="https://www.instagram.com/bur_pchelca?igsh=MXBqcXcya21mbXg0Zw%3D%3D" class="instagram" target="_blank"><img src="../images/instagram.svg"
+                                                                                                                             width="32" height="32"
+                                                                                                                             alt="Instagram БурМастер">Instagram</a>
+        <a href="tel:+375298399627" class="tel"><img src="../phone.svg" alt="Позвонить" width="24" height="24">+375 29 839-96-27</a>
+        <a href="tel:+375299446002" class="tel"><img src="../phone.svg" alt="Позвонить" width="24" height="24">+375 29 944-60-02</a>
+    </div>
+</section>
+
+<section class="services" id="scroll-section">
+    <h2><br>Заказать обратный звонок</h2>
+    <form id="contactForm">
+        <input type="text" name="name" placeholder="Ваше имя">
+        <input type="tel" name="phone2" style="color:#555;" placeholder="+375 (__) ___-__-__" oninvalid="this.setCustomValidity('Пожалуйста, укажите ваш номер телефона')"
+               oninput="this.setCustomValidity('')" required>
+        <textarea name="message" rows="4" placeholder="Ваш вопрос, комментарий (необязательно)"></textarea>
+        <div class="form-note" style="color:#555;">
+            Отправляя форму, вы подтверждаете согласие на обработку ваших персональных данных в соответствии с
+            <a href="../privacy-policy.html" target="_blank">Политикой конфиденциальности<br></a>.
+        </div>
+        <button type="submit">Отправить заявку</button>
+    </form>
+</section>
+
+<section class="info">
+    <p><strong>График работы: с 8:00 до 20:00</strong></p>
+
+    <p>
+        <b>БурМастер</b> – надежное бурение скважин на воду в Минске и Минской области по доступным ценам.
+    </p>
+    <p>&nbsp;&nbsp;⃰ Отправляя форму, вы подтверждаете согласие на обработку ваших персональных данных
+        в соответствии с <a href="../privacy-policy.html" target="_blank">Политикой конфиденциальности</a>.
+    </p>
+</section>
+
+<div id="toastOverlay"></div>
+<div id="toast">
+    <span id="toastMessage">Сообщение</span>
+    <span class="close" onclick="hideToast()">&times;</span>
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h3>Спасибо!</h3>
+        <p>Ваша заявка отправлена.<br>Мы с вами свяжемся в рабочие часы:<br>с 8.00 до 20.00</p>
+        <button onclick="closeModal()">Хорошо</button>
+    </div>
+</div>
+
+
+<script>
+    const burgerIcon = document.getElementById("burgerIcon");
+    const menuOverlay = document.getElementById("menuOverlay");
+    const closeMenu = document.getElementById("close-menu");
+
+    burgerIcon.addEventListener("click", () => {
+        menuOverlay.style.display = "flex";
+    });
+
+    menuOverlay.addEventListener("click", (e) => {
+        if (e.target === menuOverlay || e.target.tagName === "A") {
+            menuOverlay.style.display = "none";
+        }
+    });
+
+    closeMenu.addEventListener("click", (e) => {
+        if (e.target === closeMenu || e.target.tagName === "A") {
+            menuOverlay.style.display = "none";
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Маска для белорусских номеров
+        const phoneInput = document.querySelector('input[name="phone"]');
+
+        phoneInput.addEventListener('focus', () => {
+            phoneInput.style.color = 'black';
+        });
+
+        phoneInput.addEventListener('blur', () => {
+            if (!phoneInput.value || phoneInput.value === '+375 (__) ___-__-__') {
+                phoneInput.style.color = 'gray';
+            }
+        });
+
+        // Маска с фиксированной частью +375
+        const maskOptions = {
+            mask: '+{375} (00) 000-00-00',
+            lazy: false,
+            overwrite: true,
+        };
+        if (typeof IMask !== 'undefined') {
+            IMask(phoneInput, maskOptions);
+        }
+    });
+
+    const TOKEN = "8477142374:AAEG87UhHnxBdUa4_s5xrUqg6M3gbTfVhD0";
+    const CHAT_ID = "-4980958139";
+    const URL = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+
+    const toast = document.getElementById("toast");
+    const toastMessage = toast.querySelector(".message");
+
+    function showToast(message, isError = false) {
+        const toast = document.getElementById("toast");
+        const toastMessage = document.getElementById("toastMessage");
+        const overlay = document.getElementById("toastOverlay");
+
+        toastMessage.textContent = message;
+
+        if (isError) {
+            toast.classList.add("error");
+        } else {
+            toast.classList.remove("error");
+        }
+
+        overlay.style.display = "block";
+        toast.style.display = "block";
+
+        setTimeout(() => {
+            document.addEventListener("click", hideToast, {once: true});
+        }, 0);
+
+        setTimeout(() => {
+            hideToast();
+        }, 3000);
+    }
+
+    function hideToast() {
+        const toast = document.getElementById("toast");
+        const overlay = document.getElementById("toastOverlay");
+
+        toast.style.display = "none";
+        overlay.style.display = "none";
+    }
+
+    document.getElementById("shortContactForm").addEventListener("click", function(e){
+        if(e.target.type === "submit") {
+            e.preventDefault();
+            const phoneInput = document.querySelector('input[name="phone"]');
+            const phone = phoneInput.value;
+
+            // Валидация
+            if(!phone || phone.includes('_')) {
+                showToast("Введите корректный номер телефона", true);
+                return;
+            }
+
+            const cleanPhone = phone.replace(/\D/g, '')
+            const text = `📩 Новая заявка с сайта\n\n👤 📞 Телефон: +${cleanPhone}`;
+
+            fetch(URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ chat_id: CHAT_ID, text: text, parse_mode: "HTML" })
+            })
+                .then(res => {
+                    if(res.ok){
+                        e.preventDefault();
+                        openModal();
+                        phoneInput.value = ""; // Очищаем поле
+                    } else {
+                        showToast("❌ Ошибка при отправке.", true);
+                    }
+                })
+                .catch(() => {
+                    showToast("⚠️ Сеть недоступна.", true);
+                });
+        }
+    });
+
+    function openModal() {
+        document.getElementById("modalOverlay").style.display = "flex";
+    }
+
+    function closeModal() {
+        document.getElementById("modalOverlay").style.display = "none";
+    }
+
+    function updateHeaderSizes() {
+        if (window.innerWidth <= 540) {
+            document.getElementById("short-schedule").textContent = "8:00-20:00";
+        }
+        else if (window.innerWidth <= 675) {
+            document.getElementById("short-schedule").textContent = "с 8:00 до 20:00";
+        }
+        else {
+            document.getElementById("short-schedule").textContent = "Работаем с 8:00 до 20:00";
+        }
+        if (window.innerWidth <= 360) {
+            document.getElementById("phone1").textContent = "📞298399627";
+            document.getElementById("phone2").textContent = "📞299446002";
+        }
+        else if (window.innerWidth <= 880) {
+            document.getElementById("phone1").textContent = "📞29 839-96-27";
+            document.getElementById("phone2").textContent = "📞29 944-60-02";
+        } else {
+            document.getElementById("phone1").textContent = "📞+375 29 839-96-27";
+            document.getElementById("phone2").textContent = "📞+375 29 944-60-02";
+        }
+    }
+
+    window.addEventListener("load", updateHeaderSizes);
+    window.addEventListener("resize", updateHeaderSizes);
+</script>
+
+</body..>
+</html>
