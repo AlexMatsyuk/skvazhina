@@ -395,6 +395,7 @@
     document.addEventListener('DOMContentLoaded', () => {
         // Маска для белорусских номеров
         const phoneInput = document.querySelector('input[name="phone"]');
+        const phoneInput2 = document.querySelector('input[name="phone2"]');
 
         phoneInput.addEventListener('focus', () => {
             phoneInput.style.color = 'black';
@@ -406,6 +407,16 @@
             }
         });
 
+        phoneInput2.addEventListener('focus', () => {
+            phoneInput2.style.color = 'black';
+        });
+
+        phoneInput2.addEventListener('blur', () => {
+            if (!phoneInput2.value || phoneInput2.value === '+375(__)___-__-__') {
+                phoneInput2.style.color = 'gray';
+            }
+        });
+
         // Маска с фиксированной частью +375
         const maskOptions = {
             mask: '+{375}(00)000-00-00',
@@ -414,6 +425,7 @@
         };
         if (typeof IMask !== 'undefined') {
             IMask(phoneInput, maskOptions);
+            IMask(phoneInput2, maskOptions);
         }
     });
 
@@ -490,6 +502,40 @@
                     showToast("⚠️ Сеть недоступна.", true);
                 });
         }
+    });
+
+    document.getElementById("contactForm").addEventListener("submit", function(e){
+        e.preventDefault();
+        const name = this.name.value;
+        const phone = this.phone2.value;
+        const message = this.message.value;
+
+        // Валидация телефона (опционально)
+        if(!phone || phone.includes('_')) {
+            showToast("Введите корректный номер телефона", true);
+            return;
+        }
+
+        const cleanPhone = phone.replace(/\D/g, '')
+        const text = `📩 Новая заявка с сайта\n\n👤 Имя: ${name}\n📞 Телефон: +${cleanPhone}\n💬 Сообщение: ${message}`;
+
+        fetch(URL, {
+            method:"POST",
+            headers:{ "Content-Type":"application/json" },
+            body:JSON.stringify({ chat_id: CHAT_ID, text:text, parse_mode:"HTML" })
+        })
+            .then(res=>{
+                if(res.ok){
+                    e.preventDefault();
+                    openModal();
+                    this.reset();
+                } else {
+                    showToast("❌ Ошибка при отправке.", true);
+                }
+            })
+            .catch(()=>{
+                showToast("⚠️ Сеть недоступна.", true);
+            });
     });
 
     function openModal() {
