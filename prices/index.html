@@ -279,7 +279,7 @@
         <div class="header-form-wrapper" style="display: flex; flex-direction: column; align-items: flex-start;">
             <div class="header-form" id="shortContactForm">
                 <input type="tel" name="phone"
-                       placeholder="+375(__)___-__-__"
+                       placeholder="+375 (__) ___-__-__"
                        oninvalid="this.setCustomValidity('Пожалуйста, укажите ваш номер телефона')"
                        oninput="this.setCustomValidity('')"
                        style="color:grey"
@@ -395,14 +395,14 @@
         });
 
         phoneInput.addEventListener('blur', () => {
-            if (!phoneInput.value || phoneInput.value === '+375(__)___-__-__') {
+            if (!phoneInput.value || phoneInput.value === '+375 (__) ___-__-__') {
                 phoneInput.style.color = 'gray';
             }
         });
 
         // Маска с фиксированной частью +375
         const maskOptions = {
-            mask: '+{375}(00)000-00-00',
+            mask: '+{375} (00) 000-00-00',
             lazy: false,
             overwrite: true,
         };

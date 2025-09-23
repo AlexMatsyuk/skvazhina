@@ -279,7 +279,7 @@
         <div class="header-form-wrapper" style="display: flex; flex-direction: column; align-items: flex-start;">
             <div class="header-form" id="shortContactForm">
                 <input type="tel" name="phone"
-                       placeholder="+375(__)___-__-__"
+                       placeholder="+375 (__) ___-__-__"
                        oninvalid="this.setCustomValidity('Пожалуйста, укажите ваш номер телефона')"
                        oninput="this.setCustomValidity('')"
                        style="color:grey"
@@ -333,7 +333,7 @@
     <h2>Заказать обратный звонок</h2>
     <form id="contactForm">
         <input type="text" name="name" placeholder="Ваше имя">
-        <input type="tel" name="phone2" style="color:#555;" placeholder="+375(__)___-__-__" oninvalid="this.setCustomValidity('Пожалуйста, укажите ваш номер телефона')"
+        <input type="tel" name="phone2" style="color:#555;" placeholder="+375 (__) ___-__-__" oninvalid="this.setCustomValidity('Пожалуйста, укажите ваш номер телефона')"
                oninput="this.setCustomValidity('')" required>
         <textarea name="message" rows="4" placeholder="Ваш вопрос, комментарий (необязательно)"></textarea>
         <div class="form-note" style="color:#555;">
@@ -402,7 +402,7 @@
         });
 
         phoneInput.addEventListener('blur', () => {
-            if (!phoneInput.value || phoneInput.value === '+375(__)___-__-__') {
+            if (!phoneInput.value || phoneInput.value === '+375 (__) ___-__-__') {
                 phoneInput.style.color = 'gray';
             }
         });
@@ -412,14 +412,14 @@
         });
 
         phoneInput2.addEventListener('blur', () => {
-            if (!phoneInput2.value || phoneInput2.value === '+375(__)___-__-__') {
+            if (!phoneInput2.value || phoneInput2.value === '+375 (__) ___-__-__') {
                 phoneInput2.style.color = 'gray';
             }
         });
 
         // Маска с фиксированной частью +375
         const maskOptions = {
-            mask: '+{375}(00)000-00-00',
+            mask: '+{375} (00) 000-00-00',
             lazy: false,
             overwrite: true,
         };
