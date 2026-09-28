@@ -1,11 +1,11 @@
 {
-  "name": "БурМастер - Бурение скважин на воду",
-  "short_name": "БурМастер",
+  "name": "Северный Источник - Бурение скважин на воду",
+  "short_name": "Северный Источник",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
-  "description": "БурМастер - Бурение скважин на воду в Минске и Минской обласит",
+  "description": "Северный Источник - Бурение скважин на воду в Минске и Минской обласит",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
